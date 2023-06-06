@@ -17,10 +17,18 @@ public class Login extends javax.swing.JFrame {
      */
     
     private ButtonGroup bg=new ButtonGroup();
-    int xx, int yy;
+    //int xx, int yy;
+    
+    private void init(){
+        bg.add(jRadioButton1);
+        bg.add(jRadioButton2);
+        bg.add(jRadioButton3);
+        jRadioButton1.setSelected(true);
+    }
     
     public Login() {
         initComponents();
+        init();
     }
 
     /**
