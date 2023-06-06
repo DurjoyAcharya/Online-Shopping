@@ -4,7 +4,9 @@
  */
 package user;
 
+import connection.DbConfig;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,6 +31,23 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         init();
+    }
+    
+    private boolean isEmpty(){
+        if(jTextField1.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Email Requied", "Warning", 2);
+            return false;
+      
+        }
+        if(!jTextField1.getText().matches("^.+@.+\\..+$")){
+            JOptionPane.showMessageDialog(this, "Invalid Email", "Warning", 2);
+            return false;
+        }
+        if(String.valueOf(jPasswordField1.getPassword()).isEmpty()){
+            JOptionPane.showMessageDialog(this, "Password Requied", "Warning", 2);
+            return false;
+        }
+      return true;      
     }
 
     /**
@@ -166,6 +185,11 @@ public class Login extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton1.setText("Login");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 140, 40));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -267,6 +291,16 @@ public class Login extends javax.swing.JFrame {
         jLabel10.setVisible(false);
        
     }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       if(isEmpty()){
+           if(jRadioButton1.isSelected()){
+               var email=jTextField1.getText();
+               var password=String.valueOf(jPasswordField1.getPassword());
+               var con=DbConfig.getConnection();
+           }
+       }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
