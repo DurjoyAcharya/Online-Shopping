@@ -258,14 +258,14 @@ public class AddSupplier extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(()-> {
+          
                 try {
                     new AddSupplier().setVisible(true);
                 } catch (SQLException ex) {
                     Logger.getLogger(AddSupplier.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }
+            
         });
     }
 
