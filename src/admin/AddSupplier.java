@@ -7,7 +7,12 @@ package admin;
 import static admin.AdminDashboard.jLabel39;
 import static admin.AdminDashboard.jLabel40;
 import static admin.AdminDashboard.jPanel12;
+import dao.SupplierDao;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,11 +20,46 @@ import java.awt.Color;
  */
 public class AddSupplier extends javax.swing.JFrame {
 
-    /**
+    
+    private SupplierDao supplier;
+    public AddSupplier() throws SQLException {
+        initComponents();
+        this.supplier = new SupplierDao();
+    }
+/**
      * Creates new form AddSupplier
      */
-    public AddSupplier() {
-        initComponents();
+        public boolean isEmpty(){
+        if (jTextField1.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Supplier Id is required","Warning",2);
+        return false;
+        }
+        if(jTextField2.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Supplier Name Requied", "Warning", 2);
+            return false;
+      
+        }
+        if(jTextField3.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Supplier Email Requied", "Warning", 2);
+            return false;
+      
+        }
+        if(!jTextField3.getText().matches("^.+@.+\\..+$")){
+            JOptionPane.showMessageDialog(this, "Invalid Email Format", "Warning", 2);
+            return false;
+        }
+        
+        
+        if(String.valueOf(jPasswordField1.getPassword()).isEmpty()){
+            JOptionPane.showMessageDialog(this, "Password Requied", "Warning", 2);
+            return false;
+        }
+        if(jTextField4.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Phone Number is Requied", "Warning", 2);
+            return false;
+      
+        }
+        return true;
     }
 
     /**
@@ -118,6 +158,11 @@ public class AddSupplier extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton3.setText("Save");
         jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, 140, 30));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
@@ -151,6 +196,24 @@ public class AddSupplier extends javax.swing.JFrame {
         AdminDashboard.jLabel39.setVisible(true);
     }//GEN-LAST:event_jLabel15MouseClicked
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       if(isEmpty()){
+              int sid=Integer.parseInt(jTextField1.getText());
+                String sname=jTextField2.getText();
+                String semail=jTextField3.getText();
+                String spassword=String.valueOf(jPasswordField1.getPassword().toString());
+                String sphone=jTextField4.getText();
+                String address1=jTextField6.getText();
+                String address2=jTextField7.getText();
+           try {
+               supplier.insertData(sid, sname, semail, sname, sphone, address1, address2);
+           } catch (SQLException ex) {
+               Logger.getLogger(AddSupplier.class.getName()).log(Level.SEVERE, null, ex);
+           }
+                
+       }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -181,7 +244,11 @@ public class AddSupplier extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddSupplier().setVisible(true);
+                try {
+                    new AddSupplier().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AddSupplier.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

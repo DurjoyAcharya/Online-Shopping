@@ -19,7 +19,7 @@ public class SupplierDao {
     public Statement st=null;
     public ResultSet rs=null;
 
-    public SupplierDao() {
+    public SupplierDao() throws SQLException {
         this.con = DbConfig.getCon();
     }
     public int getMaxRowElement() throws SQLException {
@@ -55,7 +55,5 @@ public class SupplierDao {
             JOptionPane.showMessageDialog(null,
                     "Supplier Data Successfully Added ","Supplier Added",JOptionPane.INFORMATION_MESSAGE);
         }
-
-
     }
 }
