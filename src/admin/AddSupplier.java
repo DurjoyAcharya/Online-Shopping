@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ASUS
+ * @author rupkotha
  */
 public class AddSupplier extends javax.swing.JFrame {
 
@@ -147,6 +147,11 @@ public class AddSupplier extends javax.swing.JFrame {
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setText("Clear");
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 500, 130, 30));
 
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
@@ -206,13 +211,24 @@ public class AddSupplier extends javax.swing.JFrame {
                 String address1=jTextField6.getText();
                 String address2=jTextField7.getText();
            try {
-               supplier.insertData(sid, sname, semail, sname, sphone, address1, address2);
+               supplier.insertData(sid, sname, semail, spassword, sphone, address1, address2);
            } catch (SQLException ex) {
                Logger.getLogger(AddSupplier.class.getName()).log(Level.SEVERE, null, ex);
            }
                 
        }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+       jTextField1.setText("");
+       jTextField2.setText("");
+       jTextField3.setText("");
+       jTextField4.setText("");
+       jTextField6.setText("");
+       jTextField7.setText("");
+       jPasswordField1.setText("");
+
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
