@@ -7,6 +7,7 @@ package connection;
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
@@ -15,15 +16,16 @@ import java.util.logging.Logger;
  * @author rupkotha
  */
 public class DbConfig {
-   public static String username="";
+   public static String username="root";
    public static String password="";
-   public static String url="jdbc:mysql://localhost:3306/rupkotha";
-   public static Connection con=null;
+   public static String url="jdbc:mysql://localhost:3306/rupkotha";//for windows
    
+   public static Connection con=null;
+
    public static Connection getCon() throws SQLException{
        try{
            Class.forName("com.mysql.cj.jdbc.Driver");
-            con=DriverManager.getConnection(url);
+            con=DriverManager.getConnection(url,username,password);
 
        }catch(ClassNotFoundException e){
            JOptionPane.showMessageDialog(null,"","",JOptionPane.WARNING_MESSAGE);

@@ -101,7 +101,7 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/user.png"))); // NOI18N
-        jLabel3.setText("user@gmail.com");
+        jLabel3.setText("admin@gmail.com");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(944, 21, 211, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1305, 108));

@@ -4,9 +4,16 @@
  */
 package user;
 
+import admin.AdminDashboard;
 import connection.DbConfig;
-import javax.swing.ButtonGroup;
-import javax.swing.JOptionPane;
+import supplier.SupplierDashboard;
+
+import javax.swing.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -292,15 +299,81 @@ public class Login extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jLabel10MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
        if(isEmpty()){
-           if(jRadioButton1.isSelected()){
+           if(jRadioButton3.isSelected()){
+               var email=jTextField1.getText();
+               System.out.println("Done");
+          
+               var password=String.valueOf(jPasswordField1.getPassword());
+           
+               try {
+                   Connection con=DbConfig.getCon();
+                  
+                   PreparedStatement ps;
+                   ps=con.prepareStatement("select * from admin where email=? and password=?");
+                    ps.setString(1,email);
+                   ps.setString(2,password);
+                        System.out.println(email);
+                       System.out.println(password);
+                   var rs=ps.executeQuery();
+                   if (rs.next()){
+                       var ud=new AdminDashboard();
+                       ud.setVisible(true);
+                       ud.pack();
+                       this.dispose();
+                   }else{
+                       JOptionPane.showMessageDialog(this,"Incorrect email or Password","Login Failed",2);
+                   }
+               } catch (SQLException ex) {
+                   Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+               }
+
+           }else if(jRadioButton2.isSelected()){
                var email=jTextField1.getText();
                var password=String.valueOf(jPasswordField1.getPassword());
-               var con=DbConfig.getConnection();
+               try {
+                   Connection con=DbConfig.getCon();
+                   PreparedStatement ps;
+                   ps=con.prepareStatement("select * from supplier where semail=? and spassword=?");
+                   ps.setString(1,email);
+                   ps.setString(2,password);
+                   var rs=ps.executeQuery();
+                   if (rs.next()){
+                       var ud=new SupplierDashboard();
+                       ud.setVisible(true);
+                       ud.pack();
+                       this.dispose();
+                   }else{
+                       JOptionPane.showMessageDialog(this,"Incorrect email or Password","Login Failed",2);
+                   }
+               } catch (SQLException ex) {
+                   Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           }else{
+               var email=jTextField1.getText();
+               var password=String.valueOf(jPasswordField1.getPassword());
+               try {
+                   Connection con=DbConfig.getCon();
+                   PreparedStatement ps;
+                   ps=con.prepareStatement("select * from user where uemail=? and upassword=?");
+                   ps.setString(1,email);
+                   ps.setString(2,password);
+                   var rs=ps.executeQuery();
+                   if (rs.next()){
+                       var ud=new UserDashboard();
+                       ud.setVisible(true);
+                       ud.pack();
+                       this.dispose();
+                   }else{
+                       JOptionPane.showMessageDialog(this,"Incorrect email or Password","Login Failed",2);
+                   }
+               } catch (SQLException ex) {
+                   Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+               }
            }
        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
 
     /**
      * @param args the command line arguments
