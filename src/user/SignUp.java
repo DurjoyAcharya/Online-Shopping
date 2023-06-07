@@ -47,6 +47,11 @@ public class SignUp extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Password Requied", "Warning", 2);
             return false;
         }
+        if(jTextField5.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill The Security Question", "Warning", 2);
+            return false;
+      
+        }
         return true;
     }
 
@@ -208,6 +213,7 @@ public class SignUp extends javax.swing.JFrame {
        this.dispose();
 
     }
+   
 
     private void init() throws SQLException {
         jTextField1.setBackground(new Color(204,204,204));
