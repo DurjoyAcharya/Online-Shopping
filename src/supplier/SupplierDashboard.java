@@ -54,17 +54,17 @@ public class SupplierDashboard extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(248, 216, 6));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/shopping.png"))); // NOI18N
-        jLabel1.setText("ONLINE SHOPPING");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 27, 382, -1));
+        jLabel1.setText("JISA ONLINE SHOPPING");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 400, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logout.png"))); // NOI18N
-        jLabel2.setText("Log Out");
+        jLabel2.setText(" Log Out");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -80,10 +80,11 @@ public class SupplierDashboard extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 1320, 110));
 
-        jPanel5.setBackground(new java.awt.Color(102, 0, 102));
+        jPanel5.setBackground(new java.awt.Color(243, 218, 61));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel6.setBackground(new java.awt.Color(255, 204, 255));
+        jPanel6.setBackground(new java.awt.Color(243, 218, 61));
+        jPanel6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 28)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/dashboard.png"))); // NOI18N
@@ -93,10 +94,10 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,9 +107,10 @@ public class SupplierDashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 37, -1, -1));
+        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 37, 280, -1));
 
-        jPanel11.setBackground(new java.awt.Color(102, 0, 102));
+        jPanel11.setBackground(new java.awt.Color(243, 218, 61));
+        jPanel11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/delivery_light.png"))); // NOI18N
@@ -127,11 +129,12 @@ public class SupplierDashboard extends javax.swing.JFrame {
                 jLabel11MouseClicked(evt);
             }
         });
-        jPanel11.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 90, 40));
+        jPanel11.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 90, 40));
 
         jPanel5.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 280, 50));
 
-        jPanel1.setBackground(new java.awt.Color(102, 0, 102));
+        jPanel1.setBackground(new java.awt.Color(243, 218, 61));
+        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/box_light.png"))); // NOI18N
@@ -148,14 +151,15 @@ public class SupplierDashboard extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 0, 120, 30));
 
-        jPanel5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 290, 40));
+        jPanel5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 280, 40));
 
-        jPanel3.setBackground(new java.awt.Color(102, 0, 102));
+        jPanel3.setBackground(new java.awt.Color(243, 218, 61));
+        jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/account_light.png"))); // NOI18N
         jLabel17.setText("jLabel17");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 30, -1));
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 30, -1));
 
         jLabel18.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,9 +169,9 @@ public class SupplierDashboard extends javax.swing.JFrame {
                 jLabel18MouseClicked(evt);
             }
         });
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 0, 120, 30));
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 120, 30));
 
-        jPanel5.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 290, 50));
+        jPanel5.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 280, 50));
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 284, 832));
 
@@ -182,17 +186,17 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 0, 153));
         jLabel5.setText("My Statistics");
-        jPanel8.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 145, -1));
+        jPanel8.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 145, -1));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel10.setText("My Deliveries:");
-        jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 100, 20));
+        jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 140, 20));
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel16.setText("0");
-        jPanel8.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 20, 20));
+        jPanel8.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 20, 20));
 
-        getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 380, 123));
+        getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 1020, 123));
 
         pack();
         setLocationRelativeTo(null);

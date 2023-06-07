@@ -49,7 +49,7 @@ public class PurchaseDetails extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 213, 128));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -72,14 +72,19 @@ public class PurchaseDetails extends javax.swing.JFrame {
         jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 94, 469, 460));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 750, 460));
 
         jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(539, 47, 272, 30));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, 272, 30));
 
         jTextField2.setEditable(false);
         jTextField2.setBackground(new java.awt.Color(204, 204, 204));
         jTextField2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 107, 271, 30));
 
         jTextField3.setEditable(false);
@@ -92,9 +97,10 @@ public class PurchaseDetails extends javax.swing.JFrame {
         jTextField4.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 246, 271, 30));
 
-        jButton3.setBackground(new java.awt.Color(255, 204, 204));
+        jButton3.setBackground(new java.awt.Color(7, 222, 152));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton3.setText("Clear");
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 270, 38));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -103,21 +109,22 @@ public class PurchaseDetails extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel2.setText("Received Date");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 154, 107, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 154, 130, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel3.setText("Current Date");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 222, 83, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 222, 100, -1));
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 204));
+        jButton1.setBackground(new java.awt.Color(7, 222, 152));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setText("Refund");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 270, 38));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Search Product");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 47, 179, 31));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, 179, 31));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,15 +134,13 @@ public class PurchaseDetails extends javax.swing.JFrame {
                 jLabel15MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 30, 30));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, 30, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,6 +157,10 @@ public class PurchaseDetails extends javax.swing.JFrame {
         UserDashboard.jLabel21.setForeground(Color.blue);
         UserDashboard.jLabel20.setVisible(true);
     }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments

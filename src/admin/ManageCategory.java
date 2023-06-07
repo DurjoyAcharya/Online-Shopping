@@ -48,7 +48,7 @@ public class ManageCategory extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 213, 128));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
@@ -59,7 +59,7 @@ public class ManageCategory extends javax.swing.JFrame {
                 jLabel16MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 0, 30, 30));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, 30, 30));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -80,7 +80,7 @@ public class ManageCategory extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 118, 540, 360));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(604, 90, 270, -1));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 270, -1));
 
         jTextField2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 280, -1));
@@ -106,30 +106,39 @@ public class ManageCategory extends javax.swing.JFrame {
         jLabel3.setText("Description");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 160, -1));
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 204));
+        jButton1.setBackground(new java.awt.Color(7, 222, 152));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton1.setText("Clear");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 110, 40));
 
-        jButton2.setBackground(new java.awt.Color(255, 204, 204));
+        jButton2.setBackground(new java.awt.Color(7, 222, 152));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton2.setText("Delete");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 120, 40));
 
-        jButton3.setBackground(new java.awt.Color(255, 204, 204));
+        jButton3.setBackground(new java.awt.Color(7, 222, 152));
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton3.setText("Save");
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 120, 40));
 
-        jButton4.setBackground(new java.awt.Color(255, 204, 204));
+        jButton4.setBackground(new java.awt.Color(7, 222, 152));
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton4.setText("Update");
+        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 110, 40));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Search");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 60, 20));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 60, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -152,6 +161,10 @@ public class ManageCategory extends javax.swing.JFrame {
         AdminDashboard.jLabel34.setForeground(Color.green);
         AdminDashboard.jLabel4.setVisible(true);
     }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

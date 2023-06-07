@@ -64,7 +64,7 @@ public class UserAccount extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 213, 128));
         jPanel1.setForeground(new java.awt.Color(153, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -134,9 +134,15 @@ public class UserAccount extends javax.swing.JFrame {
         jLabel12.setText("Address Line2 (Country)");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, -1));
 
-        btnDelete.setBackground(new java.awt.Color(255, 204, 204));
+        btnDelete.setBackground(new java.awt.Color(7, 222, 152));
         btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnDelete.setText("Delete");
+        btnDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, 130, 30));
 
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
@@ -144,9 +150,10 @@ public class UserAccount extends javax.swing.JFrame {
         jLabel13.setText("jLabel10");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 30, 30));
 
-        btnUpdate.setBackground(new java.awt.Color(255, 204, 204));
+        btnUpdate.setBackground(new java.awt.Color(7, 222, 152));
         btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnUpdate.setText("Update");
+        btnUpdate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 140, 30));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
@@ -179,6 +186,10 @@ public class UserAccount extends javax.swing.JFrame {
         UserDashboard.jLabel23.setForeground(Color.blue);
         UserDashboard.jLabel22.setVisible(true);
     }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments

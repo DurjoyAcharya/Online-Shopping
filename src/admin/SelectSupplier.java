@@ -45,7 +45,7 @@ public class SelectSupplier extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 213, 128));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -93,14 +93,16 @@ public class SelectSupplier extends javax.swing.JFrame {
         jLabel2.setText("Supplier");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 100, 20));
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 204));
+        jButton1.setBackground(new java.awt.Color(7, 222, 152));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton1.setText("Clear");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 100, 40));
 
-        jButton2.setBackground(new java.awt.Color(255, 204, 204));
+        jButton2.setBackground(new java.awt.Color(7, 222, 152));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton2.setText("Select");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 100, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -69,13 +69,13 @@ public class UserDashboard extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1311, 0, -1, 952));
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 213, 128));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/shopping.png"))); // NOI18N
-        jLabel1.setText("ONLINE SHOPPING");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 27, 382, -1));
+        jLabel1.setText(" JISA ONLINE SHOPPING");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 430, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logout.png"))); // NOI18N
@@ -104,16 +104,17 @@ public class UserDashboard extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 114, -1, -1));
 
-        jPanel5.setBackground(new java.awt.Color(102, 0, 102));
+        jPanel5.setBackground(new java.awt.Color(241, 165, 18));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel6.setBackground(new java.awt.Color(255, 204, 255));
+        jPanel6.setBackground(new java.awt.Color(241, 165, 18));
+        jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 28)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/dashboard.png"))); // NOI18N
         jLabel4.setText("DASHBOARD");
-        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 244, -1));
+        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 240, -1));
 
         jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, 50));
 
@@ -135,7 +136,8 @@ public class UserDashboard extends javax.swing.JFrame {
 
         jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 310, -1));
 
-        jPanel10.setBackground(new java.awt.Color(102, 0, 102));
+        jPanel10.setBackground(new java.awt.Color(241, 165, 18));
+        jPanel10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/purchase_light.png"))); // NOI18N
@@ -152,9 +154,10 @@ public class UserDashboard extends javax.swing.JFrame {
         });
         jPanel10.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 9, 110, 30));
 
-        jPanel5.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 290, 50));
+        jPanel5.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 280, 50));
 
-        jPanel12.setBackground(new java.awt.Color(102, 0, 102));
+        jPanel12.setBackground(new java.awt.Color(241, 165, 18));
+        jPanel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/purchasedetails_light.png"))); // NOI18N
@@ -171,9 +174,10 @@ public class UserDashboard extends javax.swing.JFrame {
         });
         jPanel12.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 11, 160, -1));
 
-        jPanel5.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 290, 50));
+        jPanel5.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 280, 50));
 
-        jPanel14.setBackground(new java.awt.Color(102, 0, 102));
+        jPanel14.setBackground(new java.awt.Color(241, 165, 18));
+        jPanel14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/account_light.png"))); // NOI18N
@@ -190,7 +194,7 @@ public class UserDashboard extends javax.swing.JFrame {
         });
         jPanel14.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 10, 150, -1));
 
-        jPanel5.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 290, 50));
+        jPanel5.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 280, 50));
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 284, 832));
 
@@ -200,33 +204,33 @@ public class UserDashboard extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 0, 153));
         jLabel5.setText("My Statistics");
-        jPanel8.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 6, 145, -1));
+        jPanel8.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 145, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel8.setText("Total Categories:");
-        jPanel8.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 120, 20));
+        jPanel8.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 150, 20));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel10.setText("Total Product:");
-        jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 83, 100, 20));
+        jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 83, 130, 20));
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel13.setText("Total Purchase:");
-        jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 44, 110, -1));
+        jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 140, -1));
 
         jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel15.setText("0");
-        jPanel8.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 20, 20));
+        jPanel8.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 20, 20));
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel16.setText("0");
-        jPanel8.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 84, 20, -1));
+        jPanel8.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 20, -1));
 
         jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel17.setText("0.0");
-        jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 46, 30, 20));
+        jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 30, 20));
 
-        getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 754, 123));
+        getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 1020, 123));
 
         pack();
         setLocationRelativeTo(null);

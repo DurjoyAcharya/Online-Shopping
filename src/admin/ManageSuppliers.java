@@ -53,7 +53,6 @@ public class ManageSuppliers extends javax.swing.JFrame {
         btnUpdate = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         btnDelete1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jTextField8 = new javax.swing.JTextField();
@@ -61,7 +60,7 @@ public class ManageSuppliers extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 213, 128));
         jPanel1.setForeground(new java.awt.Color(153, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -116,9 +115,10 @@ public class ManageSuppliers extends javax.swing.JFrame {
         jLabel12.setText("Address Line2 (Country)");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
 
-        btnClear.setBackground(new java.awt.Color(255, 204, 204));
+        btnClear.setBackground(new java.awt.Color(7, 222, 152));
         btnClear.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnClear.setText("Clear");
+        btnClear.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 300, 30));
 
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
@@ -126,9 +126,15 @@ public class ManageSuppliers extends javax.swing.JFrame {
         jLabel13.setText("jLabel10");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, 30, 30));
 
-        btnUpdate.setBackground(new java.awt.Color(255, 204, 204));
+        btnUpdate.setBackground(new java.awt.Color(7, 222, 152));
         btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnUpdate.setText("Update");
+        btnUpdate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 140, 30));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
@@ -141,13 +147,11 @@ public class ManageSuppliers extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 20, 20));
 
-        btnDelete1.setBackground(new java.awt.Color(255, 204, 204));
+        btnDelete1.setBackground(new java.awt.Color(7, 222, 152));
         btnDelete1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnDelete1.setText("Delete");
+        btnDelete1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(btnDelete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 130, 30));
-
-        jLabel1.setText("_____________________________________________________________________________________________________________________________________");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 660, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -167,7 +171,7 @@ public class ManageSuppliers extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 650, 230));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 650, 230));
 
         jTextField8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
@@ -175,7 +179,7 @@ public class ManageSuppliers extends javax.swing.JFrame {
                 jTextField8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 280, 30));
+        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 280, 30));
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel14.setText("Search");
@@ -207,6 +211,10 @@ public class ManageSuppliers extends javax.swing.JFrame {
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField8ActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,7 +255,6 @@ public class ManageSuppliers extends javax.swing.JFrame {
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDelete1;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

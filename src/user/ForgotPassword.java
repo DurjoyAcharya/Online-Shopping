@@ -76,20 +76,20 @@ public class ForgotPassword extends javax.swing.JFrame {
 
         jPasswordField1.setText("jPasswordField1");
 
-        jButton1.setBackground(new java.awt.Color(144, 238, 144));
+        jButton1.setBackground(new java.awt.Color(7, 222, 152));
         jButton1.setFont(new java.awt.Font("Fira Code iScript", 1, 19)); // NOI18N
         jButton1.setText("Back");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(144, 238, 144));
+        jButton2.setBackground(new java.awt.Color(7, 222, 152));
         jButton2.setFont(new java.awt.Font("Fira Code iScript", 1, 19)); // NOI18N
         jButton2.setText("Save");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

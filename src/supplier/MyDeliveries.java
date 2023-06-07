@@ -40,7 +40,7 @@ public class MyDeliveries extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 213, 128));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -65,7 +65,7 @@ public class MyDeliveries extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel1.setText("Product Search");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 120, 20));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 120, 30));
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 300, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N

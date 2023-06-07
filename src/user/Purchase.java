@@ -58,7 +58,7 @@ public class Purchase extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 213, 128));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -80,7 +80,7 @@ public class Purchase extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 344, 500, 210));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 620, 210));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,10 +100,10 @@ public class Purchase extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable2);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 89, 500, 210));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 610, 210));
 
         jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, 272, 30));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 272, 30));
 
         jTextField2.setEditable(false);
         jTextField2.setBackground(new java.awt.Color(255, 255, 255));
@@ -118,16 +118,16 @@ public class Purchase extends javax.swing.JFrame {
         jTextField4.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 246, 271, 30));
 
-        jButton2.setBackground(new java.awt.Color(255, 204, 204));
+        jButton2.setBackground(new java.awt.Color(7, 222, 152));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton2.setText("Purcahse");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 120, 38));
 
-        jButton3.setBackground(new java.awt.Color(255, 204, 204));
+        jButton3.setBackground(new java.awt.Color(7, 222, 152));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton3.setText("Print");
-        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 95, 38));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -136,33 +136,33 @@ public class Purchase extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel2.setText("Product Name");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 154, 107, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 154, 130, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel3.setText("Quantuty");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 222, 83, -1));
 
-        jButton4.setBackground(new java.awt.Color(255, 204, 204));
+        jButton4.setBackground(new java.awt.Color(7, 222, 152));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton4.setText("Add");
-        jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 95, 38));
 
-        jButton5.setBackground(new java.awt.Color(255, 204, 204));
+        jButton5.setBackground(new java.awt.Color(7, 222, 152));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton5.setText("Clear");
-        jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 120, 38));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Search Product");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 47, 179, 31));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 179, 31));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel5.setText("Total:0.0");
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(526, 308, 105, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 105, -1));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,19 +172,17 @@ public class Purchase extends javax.swing.JFrame {
                 jLabel15MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 30, 30));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 10, 30, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 831, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1071, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
         );
 
         pack();
