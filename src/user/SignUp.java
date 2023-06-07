@@ -227,7 +227,11 @@ public boolean isEmpty(){
                 String address1=jTextField6.getText();
                 String address2=jTextField7.getText();
 
-                System.out.println(id+uname+uemail+upassword+uphone+seq+ans+address1+address2);
+                try {
+                    user.insertData(id, uname, uemail, upassword, uphone, seq, ans, address1, address2);
+                } catch (SQLException ex) {
+                    Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
             }
     }//GEN-LAST:event_jButton3ActionPerformed
