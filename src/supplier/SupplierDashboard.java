@@ -30,7 +30,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        supplierEmail = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -54,7 +54,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(248, 216, 6));
+        jPanel2.setBackground(new java.awt.Color(255, 213, 128));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
@@ -73,17 +73,17 @@ public class SupplierDashboard extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1185, 15, 109, 35));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/user.png"))); // NOI18N
-        jLabel3.setText("supplier@gmail.com");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(944, 21, 211, -1));
+        supplierEmail.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        supplierEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/user.png"))); // NOI18N
+        supplierEmail.setText("supplier@gmail.com");
+        jPanel2.add(supplierEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(944, 21, 211, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 1320, 110));
 
-        jPanel5.setBackground(new java.awt.Color(243, 218, 61));
+        jPanel5.setBackground(new java.awt.Color(241, 165, 18));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel6.setBackground(new java.awt.Color(243, 218, 61));
+        jPanel6.setBackground(new java.awt.Color(241, 165, 18));
         jPanel6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 28)); // NOI18N
@@ -107,9 +107,9 @@ public class SupplierDashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 37, 280, -1));
+        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 280, -1));
 
-        jPanel11.setBackground(new java.awt.Color(243, 218, 61));
+        jPanel11.setBackground(new java.awt.Color(241, 165, 18));
         jPanel11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -133,7 +133,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
 
         jPanel5.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 280, 50));
 
-        jPanel1.setBackground(new java.awt.Color(243, 218, 61));
+        jPanel1.setBackground(new java.awt.Color(241, 165, 18));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -153,7 +153,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
 
         jPanel5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 280, 40));
 
-        jPanel3.setBackground(new java.awt.Color(243, 218, 61));
+        jPanel3.setBackground(new java.awt.Color(241, 165, 18));
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -296,7 +296,6 @@ public class SupplierDashboard extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel17;
     public static javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
@@ -309,5 +308,6 @@ public class SupplierDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
+    public static javax.swing.JLabel supplierEmail;
     // End of variables declaration//GEN-END:variables
 }

@@ -29,7 +29,7 @@
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="6" green="d8" red="f8" type="rgb"/>
+          <Color blue="80" green="d5" red="ff" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>
@@ -78,7 +78,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="supplierEmail">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="16" style="0"/>
@@ -88,6 +88,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="supplier@gmail.com"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="944" y="21" width="211" height="-1"/>
@@ -99,7 +102,7 @@
     <Container class="javax.swing.JPanel" name="jPanel5">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="3d" green="da" red="f3" type="rgb"/>
+          <Color blue="12" green="a5" red="f1" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>
@@ -115,7 +118,7 @@
         <Container class="javax.swing.JPanel" name="jPanel6">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="3d" green="da" red="f3" type="rgb"/>
+              <Color blue="12" green="a5" red="f1" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
@@ -125,7 +128,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="37" width="280" height="-1"/>
+              <AbsoluteConstraints x="0" y="30" width="280" height="-1"/>
             </Constraint>
           </Constraints>
 
@@ -166,7 +169,7 @@
         <Container class="javax.swing.JPanel" name="jPanel11">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="3d" green="da" red="f3" type="rgb"/>
+              <Color blue="12" green="a5" red="f1" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
@@ -246,7 +249,7 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="3d" green="da" red="f3" type="rgb"/>
+              <Color blue="12" green="a5" red="f1" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
@@ -310,7 +313,7 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="3d" green="da" red="f3" type="rgb"/>
+              <Color blue="12" green="a5" red="f1" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">

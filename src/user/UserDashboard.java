@@ -34,7 +34,7 @@ public class UserDashboard extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        userEmail = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -88,10 +88,10 @@ public class UserDashboard extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1185, 15, 109, 35));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/user.png"))); // NOI18N
-        jLabel3.setText("user@gmail.com");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(944, 21, 211, -1));
+        userEmail.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        userEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/user.png"))); // NOI18N
+        userEmail.setText("user@gmail.com");
+        jPanel2.add(userEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(944, 21, 211, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1305, 108));
 
@@ -330,7 +330,6 @@ public class UserDashboard extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel21;
     public static javax.swing.JLabel jLabel22;
     public static javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
@@ -348,5 +347,6 @@ public class UserDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    public static javax.swing.JLabel userEmail;
     // End of variables declaration//GEN-END:variables
 }

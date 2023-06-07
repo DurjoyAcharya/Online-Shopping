@@ -95,7 +95,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(241, 165, 18));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trolley.png"))); // NOI18N
@@ -118,7 +118,7 @@ public class Login extends javax.swing.JFrame {
         jLabel14.setText("Explore");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 244, -1));
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 213, 128));
         jPanel3.addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
             public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
                 jPanel3AncestorMoved(evt);
@@ -168,7 +168,7 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 30, 40));
 
-        jRadioButton1.setBackground(new java.awt.Color(204, 204, 255));
+        jRadioButton1.setBackground(new java.awt.Color(255, 213, 128));
         jRadioButton1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jRadioButton1.setText("User");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -178,12 +178,12 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel3.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, 30));
 
-        jRadioButton2.setBackground(new java.awt.Color(204, 204, 255));
+        jRadioButton2.setBackground(new java.awt.Color(255, 213, 128));
         jRadioButton2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jRadioButton2.setText("Supplier");
         jPanel3.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 110, 30));
 
-        jRadioButton3.setBackground(new java.awt.Color(204, 204, 255));
+        jRadioButton3.setBackground(new java.awt.Color(255, 213, 128));
         jRadioButton3.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jRadioButton3.setText("Admin");
         jPanel3.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, -1, 30));
@@ -320,6 +320,7 @@ public class Login extends javax.swing.JFrame {
                        var ud=new AdminDashboard();
                        ud.setVisible(true);
                        ud.pack();
+                       AdminDashboard.adminEmail.setText(email);
                        this.dispose();
                    }else{
                        JOptionPane.showMessageDialog(this,"Incorrect email or Password","Login Failed",2);
@@ -341,6 +342,7 @@ public class Login extends javax.swing.JFrame {
                    if (rs.next()){
                        var ud=new SupplierDashboard();
                        ud.setVisible(true);
+                       SupplierDashboard.supplierEmail.setText(email);
                        ud.pack();
                        this.dispose();
                    }else{
@@ -363,6 +365,7 @@ public class Login extends javax.swing.JFrame {
                        var ud=new UserDashboard();
                        ud.setVisible(true);
                        ud.pack();
+                       UserDashboard.userEmail.setText(email);
                        this.dispose();
                    }else{
                        JOptionPane.showMessageDialog(this,"Incorrect email or Password","Login Failed",2);
@@ -381,11 +384,8 @@ public class Login extends javax.swing.JFrame {
        
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(()-> {
                 new Login().setVisible(true);
-               
-            }
         });
     }
 
