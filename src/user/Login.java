@@ -276,7 +276,7 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowOpened
 
-    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) throws SQLException {//GEN-FIRST:event_jLabel12MouseClicked
         // TODO add your handling code here:
         new SignUp().setVisible(true);
         this.dispose();
