@@ -4,6 +4,14 @@
  */
 package user;
 
+import dao.UserDao;
+
+import javax.swing.*;
+import java.awt.*;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author ASUS
@@ -13,8 +21,33 @@ public class SignUp extends javax.swing.JFrame {
     /**
      * Creates new form SignUp
      */
-    public SignUp() {
+
+    UserDao user=new UserDao();
+
+    public SignUp() throws SQLException {
         initComponents();
+        init();
+
+    }
+    public boolean isEmpty(){
+        if (jTextField2.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Username is required","Warning",2);
+        return false;
+        }
+        if(jTextField3.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Email Requied", "Warning", 2);
+            return false;
+      
+        }
+        if(!jTextField3.getText().matches("^.+@.+\\..+$")){
+            JOptionPane.showMessageDialog(this, "Invalid Email Format", "Warning", 2);
+            return false;
+        }
+        if(String.valueOf(jPasswordField1.getPassword()).isEmpty()){
+            JOptionPane.showMessageDialog(this, "Password Requied", "Warning", 2);
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -170,47 +203,28 @@ public class SignUp extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel15MouseClicked
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {                                        
        new Login().setVisible(true);
        this.dispose();
-    }//GEN-LAST:event_btnBackActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    }
+
+    private void init() throws SQLException {
+        jTextField1.setBackground(new Color(204,204,204));
+        jTextField1.setText(String.valueOf(user.getMaxRowElement()));
+
+    }
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(()-> {
+            try {
                 new SignUp().setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -237,5 +251,5 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }
