@@ -37,8 +37,8 @@ public class UserAccount extends javax.swing.JFrame {
     }
 
     private void init() throws SQLException {
-        uid = userDao.getUserId(UserDashboard.userEmail.getText());
-        values=userDao.getUserData(uid);
+        uid = userDao.getUserId("sa@g.com");//UserDashboard.userEmail.getText()
+        values=userDao.getUserData(1005);//uid
         setValue();
     }
 
@@ -187,6 +187,15 @@ public class UserAccount extends javax.swing.JFrame {
         btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                try {
+                    btnUpdateActionPerformed(evt);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
         jPanel1.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 140, 30));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
@@ -221,8 +230,23 @@ public class UserAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
+        userDao.deleteUserdata(Integer.parseInt(jTextField1.getText()));
+        this.dispose();
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {                                          
+        int id=Integer.parseInt(jTextField1.getText());
+        String name=jTextField2.getText();
+        String email=jTextField2.getText();
+        String pass=String.valueOf(jPasswordField1.getPassword());
+        String phone=jTextField4.getText();
+        String seq=jComboBox1.getSelectedItem().toString();
+        var ans=jTextField5.getText();
+        var address1=jTextField6.getText();
+        var address2=jTextField7.getText();
+        userDao.updateUser(id,name,email,pass,phone,seq,ans,address1,address2);
+        this.dispose();
+    }
 
     /**
      * @param args the command line arguments
