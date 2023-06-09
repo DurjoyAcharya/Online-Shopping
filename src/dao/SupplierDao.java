@@ -87,5 +87,25 @@ public class SupplierDao {
             Logger.getLogger(SupplierDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+     public void updateSupplier(
+            int id,
+            String uname,
+            String uemail,
+            String upass,
+            String uphone,
+            String address1,
+            String address2
+    ) throws SQLException {
+        String sql="UPDATE supplier SET sname=?,semail=?,spassword=?,sphone=?,saddress1=?,saddress2=? WHERE sid=?";
+        ps=con.prepareStatement(sql);
+        ps.setString(1,uname);
+        ps.setString(2,uemail);
+        ps.setString(3,upass);
+        ps.setString(4,uphone);
+        ps.setString(5,address1);
+        ps.setString(6,address2);
+        ps.setInt(7,id);
+        if (ps.executeUpdate()>0)
+            JOptionPane.showMessageDialog(null,"Supplier Data Successfully Updated");
+    }
 }

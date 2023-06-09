@@ -24,14 +24,29 @@ public class ManageSuppliers extends javax.swing.JFrame {
     
     public SupplierDao supplier;
     public DefaultTableModel model;
+    public int rowIndex;
     
     public ManageSuppliers() throws SQLException {
         supplier=new SupplierDao();
+        rowIndex=1001;
         initComponents();
         suppliersTable();
     }
 
-  
+  private void clear(){
+        try {
+            jTextField1.setText(String.valueOf(supplier.getMaxRowElement()));
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            jPasswordField1.setText("");
+            jTextField6.setText("");
+            jTextField7.setText("");
+            jTable1.clearSelection();
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageSuppliers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -124,6 +139,11 @@ public class ManageSuppliers extends javax.swing.JFrame {
         btnClear.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnClear.setText("Clear");
         btnClear.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 300, 30));
 
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
@@ -174,6 +194,11 @@ public class ManageSuppliers extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 650, 230));
@@ -213,6 +238,7 @@ public class ManageSuppliers extends javax.swing.JFrame {
         AdminDashboard.jLabel41.setVisible(true);
     }//GEN-LAST:event_jLabel16MouseClicked
 
+
     private void suppliersTable(){
         supplier.getSupplierValue(jTable1,"");
         model=(DefaultTableModel) jTable1.getModel();
@@ -229,12 +255,52 @@ public class ManageSuppliers extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField8ActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
+        int id=Integer.parseInt(jTextField1.getText());
+        String name=jTextField2.getText();
+        String email=jTextField3.getText();
+        String pass=String.valueOf(jPasswordField1.getText());
+        String phone=jTextField4.getText();
+        String add1=jTextField6.getText();
+        String add2=jTextField7.getText();
+        try {
+            supplier.updateSupplier(id,name,email,pass,phone,add1,add2);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageSuppliers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTable1.setModel(new DefaultTableModel(null,new Object[]{
+                "User ID",
+                "UserName",
+                "Email",
+                "Password",
+                "Phone",
+                "Address Line 1",
+                "Address Line 2"
+        }));
+        supplier.getSupplierValue(jTable1,email);
+        clear();
+        
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        clear();
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {                                     
+        model=(DefaultTableModel) jTable1.getModel();
+        rowIndex=jTable1.getSelectedRow();
+        jTextField1.setText(model.getValueAt(rowIndex,0).toString());
+        jTextField2.setText(model.getValueAt(rowIndex,1).toString());
+        jTextField3.setText(model.getValueAt(rowIndex,2).toString());
+        jPasswordField1.setText(model.getValueAt(rowIndex,3).toString());
+        jTextField4.setText(model.getValueAt(rowIndex,4).toString());
+        jTextField6.setText(model.getValueAt(rowIndex,5).toString());
+        jTextField7.setText(model.getValueAt(rowIndex,6).toString());
+
+    }
+
+
+
+
     public static void main(String args[]) {
   
         java.awt.EventQueue.invokeLater(()-> {
