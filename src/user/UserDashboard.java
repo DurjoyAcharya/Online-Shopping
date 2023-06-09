@@ -2,6 +2,8 @@ package user;
 
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static supplier.SupplierDashboard.jLabel11;
 import static supplier.SupplierDashboard.jLabel9;
@@ -178,6 +180,11 @@ public class UserDashboard extends javax.swing.JFrame {
 
         jPanel14.setBackground(new java.awt.Color(241, 165, 18));
         jPanel14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel14MouseClicked(evt);
+            }
+        });
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/account_light.png"))); // NOI18N
@@ -272,40 +279,26 @@ public class UserDashboard extends javax.swing.JFrame {
         purchaseDetails.pack();
     }//GEN-LAST:event_jLabel21MouseClicked
 
-    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) throws SQLException {//GEN-FIRST:event_jLabel23MouseClicked
-        System.out.println("Hello World");
-        
-     
-    }//GEN-LAST:event_jLabel23MouseClicked
+     @SuppressWarnings("unchecked")
+    private void jPanel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel14MouseClicked
+        try {
+            var useracc=new UserAccount();
+            useracc.setVisible(true);
+            useracc.pack();
+           // this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jPanel14MouseClicked
 
+                                         
+
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UserDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UserDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UserDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UserDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+   
         java.awt.EventQueue.invokeLater(()->{
                 new UserDashboard().setVisible(true);
         });

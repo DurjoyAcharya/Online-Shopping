@@ -48,9 +48,9 @@ public class UserAccount extends javax.swing.JFrame {
         jTextField3.setText(values[2]);
         jPasswordField1.setText(values[3]);
         jTextField4.setText(values[4]);
-        
-        jTextField6.setText(values[6]);
-        jTextField7.setText(values[7]);
+        jTextField5.setText(values[6]);
+        jTextField6.setText(values[7]);
+        jTextField7.setText(values[8]);
         
 
     }
@@ -215,7 +215,7 @@ public class UserAccount extends javax.swing.JFrame {
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         setVisible(false);
-        UserDashboard.jPanel14.setBackground(Color.red);
+      //  UserDashboard.jPanel14.setBackground(Color.red);
         UserDashboard.jLabel23.setForeground(Color.blue);
         UserDashboard.jLabel22.setVisible(true);
     }//GEN-LAST:event_jLabel16MouseClicked
