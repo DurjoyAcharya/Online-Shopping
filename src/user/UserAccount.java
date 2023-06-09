@@ -37,8 +37,8 @@ public class UserAccount extends javax.swing.JFrame {
     }
 
     private void init() throws SQLException {
-        uid = userDao.getUserId("sa@g.com");//UserDashboard.userEmail.getText()
-        values=userDao.getUserData(1005);//uid
+        uid = userDao.getUserId(UserDashboard.userEmail.getText());//
+        values=userDao.getUserData(uid);//
         setValue();
     }
 
