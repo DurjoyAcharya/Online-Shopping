@@ -4,7 +4,13 @@
  */
 package user;
 
+import dao.UserDao;
+
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import static user.UserDashboard.jLabel22;
 import static user.UserDashboard.jLabel23;
 import static user.UserDashboard.jPanel14;
@@ -18,16 +24,34 @@ public class UserAccount extends javax.swing.JFrame {
     public Color text=new Color(102,120,238);
     public Color primary=new Color(42,58,73);
     private int uid;
-
+    public UserDao userDao;
+    private String[] values;
     /**
      * Creates new form UserAccount
      */
-    public UserAccount() {
+    public UserAccount() throws SQLException {
+        userDao=new UserDao();
+        values=new String[9];
         initComponents();
         init();
     }
 
-    private void init(){
+    private void init() throws SQLException {
+        uid = userDao.getUserId(UserDashboard.userEmail.getText());
+        values=userDao.getUserData(uid);
+        setValue();
+    }
+
+    private void setValue() {
+        jTextField1.setText(values[0]);
+        jTextField2.setText(values[1]);
+        jTextField3.setText(values[2]);
+        jPasswordField1.setText(values[3]);
+        jTextField4.setText(values[4]);
+        
+        jTextField6.setText(values[6]);
+        jTextField7.setText(values[7]);
+        
 
     }
 
@@ -204,34 +228,14 @@ public class UserAccount extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UserAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UserAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UserAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UserAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(()-> {
+            try {
                 new UserAccount().setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserAccount.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
         });
     }
 

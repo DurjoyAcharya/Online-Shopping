@@ -1,7 +1,7 @@
-
 package user;
 
 import java.awt.Color;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import static supplier.SupplierDashboard.jLabel11;
 import static supplier.SupplierDashboard.jLabel9;
@@ -272,13 +272,10 @@ public class UserDashboard extends javax.swing.JFrame {
         purchaseDetails.pack();
     }//GEN-LAST:event_jLabel21MouseClicked
 
-    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
-        jPanel14.setBackground(Color.red);
-        jLabel23.setForeground(Color.blue);
-        jLabel22.setVisible(true);
-        UserAccount userAccount= new UserAccount();
-        userAccount.setVisible(true);
-        userAccount.pack();
+    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) throws SQLException {//GEN-FIRST:event_jLabel23MouseClicked
+        System.out.println("Hello World");
+        
+     
     }//GEN-LAST:event_jLabel23MouseClicked
 
     /**
@@ -309,10 +306,8 @@ public class UserDashboard extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(()->{
                 new UserDashboard().setVisible(true);
-            }
         });
     }
 
