@@ -22,6 +22,9 @@ public class ManageUsers extends javax.swing.JFrame {
     public UserDao user;
     private String[] values;
     private int uid;
+    public Color text=new Color(102,120,238);
+    public Color primary=new Color(42,58,73);
+    
     public ManageUsers() throws SQLException {
         user=new UserDao();
         values=new String[9];

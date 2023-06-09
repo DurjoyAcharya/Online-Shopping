@@ -12,6 +12,9 @@ import connection.DbConfig;
 
 import javax.swing.*;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 public class SupplierDao {
     public Connection con;
@@ -57,5 +60,32 @@ public class SupplierDao {
         }
     }
     
+    public void getSupplierValue(JTable table,String search){
+        var sql="select * from supplier where concat(sid,sname,semail) like ? order by sid desc";
+       
+        try {
+            ps=con.prepareStatement(sql);
+            ps.setString(1,"%"+search+"%");
+            rs=ps.executeQuery();
+            DefaultTableModel model=(DefaultTableModel)table.getModel();
+            Object[] rowData;
+            while(rs.next()){
+                rowData=new Object[7];
+                rowData[0]=rs.getInt(1);
+                rowData[1]=rs.getString(2);
+                rowData[2]=rs.getString(3);
+                rowData[3]=rs.getString(4);
+                rowData[4]=rs.getString(5);
+                rowData[5]=rs.getString(6);
+                rowData[6]=rs.getString(7);
+                model.addRow(rowData);
+            }
+            
+           
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SupplierDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

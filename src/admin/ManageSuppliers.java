@@ -12,6 +12,7 @@ import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -213,9 +214,15 @@ public class ManageSuppliers extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void suppliersTable(){
-        
+        supplier.getSupplierValue(jTable1,"");
+        model=(DefaultTableModel) jTable1.getModel();
+        jTable1.setRowHeight(30);
+        jTable1.setShowGrid(true);
+        jTable1.setGridColor(Color.black);
+        jTable1.setBackground(Color.WHITE);
+        jTable1.setSelectionBackground(Color.LIGHT_GRAY);
     }
-    
+   
     
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
         // TODO add your handling code here:
