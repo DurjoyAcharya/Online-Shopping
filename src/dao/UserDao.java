@@ -52,6 +52,35 @@ public class UserDao {
 
 
     }
+    public String[] getUserData(int uid) throws SQLException {
+        String[] value=new String[9];
+        String sql="select * from user where uid=?";
+        ps=con.prepareStatement(sql);
+        ps.setInt(1,uid);
+        rs = ps.executeQuery();
+        if (rs.next()){
+            value[0]=rs.getString(1);
+            value[1]=rs.getString(2);
+            value[2]=rs.getString(3);
+            value[3]=rs.getString(4);
+            value[4]=rs.getString(5);
+            value[5]=rs.getString(6);
+            value[6]=rs.getString(7);
+            value[7]=rs.getString(8);
+            value[8]=rs.getString(9);
+        }
+        return value;
+    }
+    public int getUserId(String email) throws SQLException {
+        int id=0;
+        String sql="select uid from user where uemail=?";
+        ps=con.prepareStatement(sql);
+        ps.setString(1,email);
+        rs=ps.executeQuery();
+        if (rs.next())
+            id=rs.getInt(1);
+        return id;
+    }
 
 
 }

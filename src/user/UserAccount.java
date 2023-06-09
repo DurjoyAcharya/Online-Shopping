@@ -15,11 +15,20 @@ import static user.UserDashboard.jPanel14;
  */
 public class UserAccount extends javax.swing.JFrame {
 
+    public Color text=new Color(102,120,238);
+    public Color primary=new Color(42,58,73);
+    private int uid;
+
     /**
      * Creates new form UserAccount
      */
     public UserAccount() {
         initComponents();
+        init();
+    }
+
+    private void init(){
+
     }
 
     /**
