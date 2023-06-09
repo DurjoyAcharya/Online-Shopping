@@ -56,4 +56,6 @@ public class SupplierDao {
                     "Supplier Data Successfully Added ","Supplier Added",JOptionPane.INFORMATION_MESSAGE);
         }
     }
+    
+    
 }

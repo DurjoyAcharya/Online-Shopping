@@ -19,20 +19,20 @@ import user.UserDashboard;
  * @author rupkotha
  */
 public class ManageUsers extends javax.swing.JFrame {
-    private UserDao user;
+    public UserDao user;
     private String[] values;
     private int uid;
     public ManageUsers() throws SQLException {
-        
-        initComponents();
-        init();
         user=new UserDao();
         values=new String[9];
+        initComponents();
+        init();
+        
     }
 
     
     private void init() throws SQLException {
-        uid = user.getUserId(UserDashboard.userEmail.getText());//
+        uid = user.getUserId("monir@buet.ac.bd");//UserDashboard.userEmail.getText()
         values=user.getUserData(uid);//
         setValue();
     }
