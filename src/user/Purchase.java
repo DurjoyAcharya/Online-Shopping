@@ -30,7 +30,7 @@ public PurchaseDao purchase;
    public int qty=0;
    public double price=0.0;
    private int pid=0;
-   
+   int rowIndex=0;
    public SimpleDateFormat df;
   
     public Purchase() {
@@ -215,6 +215,11 @@ public PurchaseDao purchase;
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton4.setText("Add");
         jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 95, 38));
 
         jButton5.setBackground(new java.awt.Color(7, 222, 152));
@@ -274,14 +279,33 @@ public PurchaseDao purchase;
     
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private boolean isProductExist(int proId){
+        model=(DefaultTableModel)jTable2.getModel();
+        if(model.getRowCount()>=0){
+            for(int i=0;i<model.getRowCount();i++){
+                int newproid=Integer.parseInt(model.getValueAt(i, 0).toString());
+                if(newproid==proId)
+                    return true;
+            }
+        }
+        return false;
+    }
+    
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-        int rowIndex=0;
+        
         model=(DefaultTableModel) jTable2.getModel();
         rowIndex=jTable2.getSelectedRow();
         jTextField2.setText(model.getValueAt(rowIndex,0).toString());
         jTextField3.setText(model.getValueAt(rowIndex,1).toString());
         jTextField4.setText(model.getValueAt(rowIndex,3).toString());
     }//GEN-LAST:event_jTable2MouseClicked
+    
+        
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+      int proid=Integer.parseInt(model.getValueAt(rowIndex,0 ).toString());
+        
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
