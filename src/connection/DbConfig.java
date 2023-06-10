@@ -19,12 +19,14 @@ public class DbConfig {
 
    
    public static Connection con=null;
-   public String user="root";
+   private String user="root";
+   private String pass="";
+   private String url="jdbc:mysql://127.0.0.1/rupkotha";
 
    public static Connection getCon() throws SQLException{
        try{
            Class.forName("com.mysql.cj.jdbc.Driver");
-            con=DriverManager.getConnection(url,username,password);
+            con=DriverManager.getConnection(url,user,pass);
 
        }catch(ClassNotFoundException e){
            JOptionPane.showMessageDialog(null,"","",JOptionPane.WARNING_MESSAGE);
