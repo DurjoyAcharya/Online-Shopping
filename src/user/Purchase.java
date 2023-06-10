@@ -9,6 +9,7 @@ import dao.PurchaseDao;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,68 +25,66 @@ import static user.UserDashboard.jPanel10;
  */
 public class Purchase extends javax.swing.JFrame {
 
-public PurchaseDao purchase;
+    public PurchaseDao purchase;
 
-   public DefaultTableModel model;
+    public DefaultTableModel model;
     public ProductDao product;
-   public int qty=0;
-   public double price=0.0;
-   private int pId;
-   int rowIndex=0;
-   public double total=0.0;
-   
-   public SimpleDateFormat df;
-  
+    public int qty = 0;
+    public double price = 0.0;
+    private int pId;
+    int rowIndex = 0;
+    public double total = 0.0;
+
+    public SimpleDateFormat df;
+
     public Purchase() {
-        
-        df=new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH);
-        product=new ProductDao();        
-        purchase=new PurchaseDao();
+
+        df = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        product = new ProductDao();
+        purchase = new PurchaseDao();
         initComponents();
         init();
     }
-    
-    private void init(){
-    try {
-        jTextField2.setText(String.valueOf(purchase.getMaxRowElement()));
-        productTable();
-        purchaseTable();
-        pId=purchase.getMaxRowElement();
-        
-    } catch (SQLException ex) {
-        Logger.getLogger(Purchase.class.getName()).log(Level.SEVERE, null, ex);
+
+    private void init() {
+        try {
+            jTextField2.setText(String.valueOf(purchase.getMaxRowElement()));
+            productTable();
+            purchaseTable();
+            pId = purchase.getMaxRowElement();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Purchase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    }
-    
-    private void productTable(){
+
+    private void productTable() {
         product.getProductValue(jTable2, "");
-        model=(DefaultTableModel)jTable2.getModel();
+        model = (DefaultTableModel) jTable2.getModel();
         jTable2.setRowHeight(30);
         jTable2.setShowGrid(true);
         jTable2.setGridColor(Color.gray);
         jTable2.setBackground(Color.WHITE);
         jTable2.setSelectionBackground(Color.LIGHT_GRAY);
     }
-    
-    
-    private void clear(){
-    try {
-        jTextField2.setText(String.valueOf(purchase.getMaxRowElement()));
-    } catch (SQLException ex) {
-        Logger.getLogger(Purchase.class.getName()).log(Level.SEVERE, null, ex);
-    }
+
+    private void clear() {
+        try {
+            jTextField2.setText(String.valueOf(purchase.getMaxRowElement()));
+        } catch (SQLException ex) {
+            Logger.getLogger(Purchase.class.getName()).log(Level.SEVERE, null, ex);
+        }
         jTextField3.setText("");
         jTextField4.setText("");
         jTextField4.setText("");
         jTable2.clearSelection();
-        qty=0;
-        price=0.0;
+        qty = 0;
+        price = 0.0;
     }
 
-    
-    private void purchaseTable(){
-         //category.getCategoryValue(jTable1, "");
-        model=(DefaultTableModel)jTable1.getModel();
+    private void purchaseTable() {
+        //category.getCategoryValue(jTable1, "");
+        model = (DefaultTableModel) jTable1.getModel();
         jTable1.setRowHeight(30);
         jTable1.setShowGrid(true);
         jTable1.setGridColor(Color.gray);
@@ -93,7 +92,6 @@ public PurchaseDao purchase;
         jTable1.setSelectionBackground(Color.LIGHT_GRAY);
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -284,79 +282,97 @@ public PurchaseDao purchase;
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         clear();
-    
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private boolean isProductExist(int proId){
-        model=(DefaultTableModel)jTable2.getModel();
-        if(model.getRowCount()>0){
-            for(int i=0;i<model.getRowCount();i++){
-                int newproid=Integer.parseInt(model.getValueAt(i, 0).toString());
-                if(newproid==proId)
-                   return true;
+    private boolean isProductExist(int proId) {
+        model = (DefaultTableModel) jTable2.getModel();
+        if (model.getRowCount() > 0) {
+            for (int i = 0; i < model.getRowCount(); i++) {
+                int newproid = Integer.parseInt(model.getValueAt(i, 0).toString());
+                if (newproid == proId) {
+                    return true;
+                }
             }
         }
         return false;
     }
-    
+
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-        
-        model=(DefaultTableModel) jTable2.getModel();
-        rowIndex=jTable2.getSelectedRow();
-        jTextField2.setText(model.getValueAt(rowIndex,0).toString());
-        jTextField3.setText(model.getValueAt(rowIndex,1).toString());
-       
-        String s1= model.getValueAt(rowIndex,3).toString();
-        String s2=model.getValueAt(rowIndex,4).toString();
-        qty=Integer.parseInt(s1);
-        price=Double.parseDouble(s2);
+
+        model = (DefaultTableModel) jTable2.getModel();
+        rowIndex = jTable2.getSelectedRow();
+        jTextField2.setText(model.getValueAt(rowIndex, 0).toString());
+        jTextField3.setText(model.getValueAt(rowIndex, 1).toString());
+
+        String s1 = model.getValueAt(rowIndex, 3).toString();
+        String s2 = model.getValueAt(rowIndex, 4).toString();
+        qty = Integer.parseInt(s1);
+        price = Double.parseDouble(s2);
     }//GEN-LAST:event_jTable2MouseClicked
-    
-        
+
+
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-      int proId=Integer.parseInt(model.getValueAt(rowIndex,0 ).toString());
-      qty=Integer.parseInt(jTextField4.getText());
-      if(!(qty<=0)){
-          int newQty=Integer.parseInt(jTextField4.getText());
-   
-          String pname=jTextField3.getText();
-        
-         
-       
-        
-          model=(DefaultTableModel)jTable1.getModel();
-         
-          //price=Double.parseDouble( model.getValueAt(2, 4).toString());
-          //String t=String.format("%.2f",price+(double)newQty);
-          
-          total+=price*(double)newQty;
-          String t=String.format("%.2f",price*(double)newQty);
-          Object[] data={pId,proId,pname,newQty,price,t}; 
-          model.addRow(data);
-          jLabel5.setText(String.format("Total: "+"%.2f", total));
-          pId++;
-          clear();
-          
-      }else {
-          JOptionPane.showMessageDialog(this, "Stock is empty","Warning",2);
-      }
-        
+        int proId = Integer.parseInt(model.getValueAt(rowIndex, 0).toString());
+        qty = Integer.parseInt(jTextField4.getText());
+        if (!(qty <= 0)) {
+            int newQty = Integer.parseInt(jTextField4.getText());
+
+            String pname = jTextField3.getText();
+
+            model = (DefaultTableModel) jTable1.getModel();
+
+            //price=Double.parseDouble( model.getValueAt(2, 4).toString());
+            //String t=String.format("%.2f",price+(double)newQty);
+            total += price * (double) newQty;
+            String t = String.format("%.2f", price * (double) newQty);
+            Object[] data = {pId, proId, pname, newQty, price, t};
+            model.addRow(data);
+            jLabel5.setText(String.format("Total: " + "%.2f", total));
+            pId++;
+            clear();
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Stock is empty", "Warning", 2);
+        }
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         System.out.println("");
-         model=(DefaultTableModel) jTable2.getModel();
-        if(model.getRowCount()>0){
-            
-        }else{
-            JOptionPane.showMessageDialog(this, "You haven't purchased any product","Warning",2);
+        model = (DefaultTableModel) jTable2.getModel();
+        if (model.getRowCount() > 0) {
+            String[] value = new String[5];
+            String email = UserDashboard.userEmail.getText();
+            value = purchase.getValue(email);
+            int uid = Integer.parseInt(value[0]);
+            String uname = value[1];
+            String uPhone = value[2];
+            String address = value[3] + ", " + value[4];
+            String purchaseDate = df.format(new Date());
+            for (int i = 0; i < model.getRowCount(); i++) {
+                int id = Integer.parseInt(model.getValueAt(i, 0).toString());
+                int pid = Integer.parseInt(model.getValueAt(i, 1).toString());
+                String pName = model.getValueAt(i, 2).toString();
+                int q = Integer.parseInt(model.getValueAt(i, 3).toString());
+                 double pri=  Double.parseDouble(model.getValueAt(1, 4).toString());
+               double tot= Double.parseDouble(model.getValueAt(i, 5).toString());
+                try {
+                    purchase.insert(id, uid, uname, uPhone, pid, pName, q, pri, tot, purchaseDate, address, null, null, "Pending");
+                    int newQuantity=purchase.getQty(pid)-q;
+                    purchase.qtyUpdate(pid, newQuantity);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Purchase.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "You haven't purchased any product", "Warning", 2);
         }
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
-   
     public static void main(String args[]) {
-       
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -374,8 +390,8 @@ public PurchaseDao purchase;
             java.util.logging.Logger.getLogger(Purchase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        java.awt.EventQueue.invokeLater(()-> {
-                new Purchase().setVisible(true);
+        java.awt.EventQueue.invokeLater(() -> {
+            new Purchase().setVisible(true);
         });
     }
 
