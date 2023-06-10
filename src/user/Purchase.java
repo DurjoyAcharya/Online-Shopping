@@ -4,6 +4,7 @@
  */
 package user;
 
+import dao.ProductDao;
 import dao.PurchaseDao;
 import java.awt.Color;
 import java.sql.SQLException;
@@ -25,7 +26,7 @@ public class Purchase extends javax.swing.JFrame {
 public PurchaseDao purchase;
 
    public DefaultTableModel model;
-   
+    public ProductDao product;
    public int qty=0;
    public double price=0.0;
    private int pid=0;
@@ -33,8 +34,9 @@ public PurchaseDao purchase;
    public SimpleDateFormat df;
   
     public Purchase() {
+        
         df=new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH);
-                
+        product=new ProductDao();        
         purchase=new PurchaseDao();
         initComponents();
         init();
@@ -53,13 +55,28 @@ public PurchaseDao purchase;
     }
     
     private void productTable(){
-         //category.getCategoryValue(jTable1, "");
-        model=(DefaultTableModel)jTable1.getModel();
+        product.getProductValue(jTable2, "");
+        model=(DefaultTableModel)jTable2.getModel();
         jTable2.setRowHeight(30);
         jTable2.setShowGrid(true);
         jTable2.setGridColor(Color.gray);
         jTable2.setBackground(Color.WHITE);
         jTable2.setSelectionBackground(Color.LIGHT_GRAY);
+    }
+    
+    
+    private void clear(){
+    try {
+        jTextField2.setText(String.valueOf(purchase.getMaxRowElement()));
+    } catch (SQLException ex) {
+        Logger.getLogger(Purchase.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField4.setText("");
+        jTable2.clearSelection();
+        qty=0;
+        price=0.0;
     }
 
     
@@ -143,6 +160,11 @@ public PurchaseDao purchase;
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(jTable2);
@@ -248,15 +270,18 @@ public PurchaseDao purchase;
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-    try {
-        jTextField2.setText(String.valueOf(purchase.getMaxRowElement()));
-        jTextField3.setText("");
-        jTextField4.setText("0");
-        jTable2.clearSelection();
-    } catch (SQLException ex) {
-        Logger.getLogger(Purchase.class.getName()).log(Level.SEVERE, null, ex);
-    }
+        clear();
+    
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        int rowIndex=0;
+        model=(DefaultTableModel) jTable2.getModel();
+        rowIndex=jTable2.getSelectedRow();
+        jTextField2.setText(model.getValueAt(rowIndex,0).toString());
+        jTextField3.setText(model.getValueAt(rowIndex,1).toString());
+        jTextField4.setText(model.getValueAt(rowIndex,3).toString());
+    }//GEN-LAST:event_jTable2MouseClicked
 
     /**
      * @param args the command line arguments
