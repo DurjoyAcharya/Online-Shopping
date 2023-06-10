@@ -19,9 +19,9 @@ public class DbConfig {
 
    
    public static Connection con=null;
-   private String user="root";
-   private String pass="";
-   private String url="jdbc:mysql://127.0.0.1/rupkotha";
+   public  String user="root";
+   public String pass="";
+   public String url="jdbc:mysql://127.0.0.1/rupkotha";
 
    public static Connection getCon() throws SQLException{
        try{
