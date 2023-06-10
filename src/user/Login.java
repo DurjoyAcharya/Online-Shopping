@@ -282,7 +282,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-       new ForgotPassword().setVisible(true);
+        try {
+            new ForgotPassword().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
        this.dispose();
         
     }//GEN-LAST:event_jLabel13MouseClicked
