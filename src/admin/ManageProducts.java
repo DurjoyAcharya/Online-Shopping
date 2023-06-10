@@ -12,6 +12,7 @@ import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -136,6 +137,11 @@ public class ManageProducts extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton3.setText("Save");
         jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 120, 40));
 
         jButton4.setBackground(new java.awt.Color(7, 222, 152));
@@ -205,6 +211,15 @@ public class ManageProducts extends javax.swing.JFrame {
         jTextField5.setText("0");
     }
     
+    private void productTable(){
+        model=(DefaultTableModel) jTable1.getModel();
+        jTable1.setRowHeight(30);
+        jTable1.setShowGrid(true);
+        jTable1.setGridColor(Color.black);
+        jTable1.setBackground(Color.WHITE);
+        jTable1.setSelectionBackground(Color.LIGHT_GRAY);
+    }
+    
     
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         setVisible(false);
@@ -220,6 +235,23 @@ public class ManageProducts extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        clear();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        System.out.println("Saved ");
+        int id=Integer.parseInt(jTextField2.getText());
+        var pname=jTextField3.getText();
+        var cat=jComboBox1.getSelectedItem().toString();
+        int qty=Integer.parseInt(jTextField4.getText());
+        if(product.isIdExist(id))
+            Double price=Double.parseDouble(jTextField5.getText());
+        else
+            JOptionPane.showMessageDialog(this, "Product Id Doesn't exists","Warning",2);
+                    
+             
+        
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(()-> {

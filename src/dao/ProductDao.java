@@ -123,4 +123,17 @@ public class ProductDao {
           return categories;
           
       }
+      public boolean isIdExist(int id){
+         var sql="select * from category where cid=?";
+           try {
+               ps=con.prepareStatement(sql);
+               ps.setInt(1, id);
+               rs=ps.executeQuery();
+               if(rs.next())
+                   return true;
+           } catch (SQLException ex) {
+               Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           return false;
+      }
 }

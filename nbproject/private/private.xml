@@ -7,10 +7,10 @@
             <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/dao/RecoverDao.java</file>
             <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/user/UserDashboard.java</file>
             <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/admin/ManageUsers.java</file>
+            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/admin/Transaction.java</file>
             <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/connection/DbConfig.java</file>
             <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/admin/AddSupplier.java</file>
             <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/user/UserAccount.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/admin/SelectSupplier.java</file>
             <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/admin/ManageCategory.java</file>
             <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/supplier/SupplierAccount.java</file>
             <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/admin/AdminDashboard.java</file>
@@ -21,6 +21,7 @@
             <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/user/PurchaseDetails.java</file>
             <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/user/Login.java</file>
             <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/admin/ManageProducts.java</file>
+            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/dao/ProductDao.java</file>
         </group>
     </open-files>
 </project-private>
