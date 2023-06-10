@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static user.UserDashboard.jLabel18;
 import static user.UserDashboard.jLabel19;
@@ -29,8 +30,10 @@ public PurchaseDao purchase;
     public ProductDao product;
    public int qty=0;
    public double price=0.0;
-   private int pid=0;
+   private int pId;
    int rowIndex=0;
+   public double total=0.0;
+   
    public SimpleDateFormat df;
   
     public Purchase() {
@@ -47,7 +50,7 @@ public PurchaseDao purchase;
         jTextField2.setText(String.valueOf(purchase.getMaxRowElement()));
         productTable();
         purchaseTable();
-        pid=purchase.getMaxRowElement();
+        pId=purchase.getMaxRowElement();
         
     } catch (SQLException ex) {
         Logger.getLogger(Purchase.class.getName()).log(Level.SEVERE, null, ex);
@@ -241,7 +244,7 @@ public PurchaseDao purchase;
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel5.setText("Total:0.0");
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 105, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 240, -1));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -281,11 +284,11 @@ public PurchaseDao purchase;
 
     private boolean isProductExist(int proId){
         model=(DefaultTableModel)jTable2.getModel();
-        if(model.getRowCount()>=0){
+        if(model.getRowCount()>0){
             for(int i=0;i<model.getRowCount();i++){
                 int newproid=Integer.parseInt(model.getValueAt(i, 0).toString());
                 if(newproid==proId)
-                    return true;
+                   return true;
             }
         }
         return false;
@@ -297,19 +300,45 @@ public PurchaseDao purchase;
         rowIndex=jTable2.getSelectedRow();
         jTextField2.setText(model.getValueAt(rowIndex,0).toString());
         jTextField3.setText(model.getValueAt(rowIndex,1).toString());
-        jTextField4.setText(model.getValueAt(rowIndex,3).toString());
+       
+        String s1= model.getValueAt(rowIndex,3).toString();
+        String s2=model.getValueAt(rowIndex,4).toString();
+        qty=Integer.parseInt(s1);
+        price=Double.parseDouble(s2);
     }//GEN-LAST:event_jTable2MouseClicked
     
         
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-      int proid=Integer.parseInt(model.getValueAt(rowIndex,0 ).toString());
+      int proId=Integer.parseInt(model.getValueAt(rowIndex,0 ).toString());
+      qty=Integer.parseInt(jTextField4.getText());
+      if(!(qty<=0)){
+          int newQty=Integer.parseInt(jTextField4.getText());
+   
+          String pname=jTextField3.getText();
         
+         
+       
+        
+          model=(DefaultTableModel)jTable1.getModel();
+         
+          //price=Double.parseDouble( model.getValueAt(2, 4).toString());
+          //String t=String.format("%.2f",price+(double)newQty);
+          
+          total+=price*(double)newQty;
+          String t=String.format("%.2f",price*(double)newQty);
+          Object[] data={pId,proId,pname,newQty,price,t}; 
+          model.addRow(data);
+          jLabel5.setText(String.format("Total: "+"%.2f", total));
+          pId++;
+          clear();
+          
+      }else {
+          JOptionPane.showMessageDialog(this, "Stock is empty","Warning",2);
+      }
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String args[]) {
        
         try {
