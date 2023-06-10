@@ -194,6 +194,11 @@ public PurchaseDao purchase;
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton2.setText("Purcahse");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 120, 38));
 
         jButton3.setBackground(new java.awt.Color(7, 222, 152));
@@ -337,6 +342,17 @@ public PurchaseDao purchase;
       }
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        System.out.println("");
+         model=(DefaultTableModel) jTable2.getModel();
+        if(model.getRowCount()>0){
+            
+        }else{
+            JOptionPane.showMessageDialog(this, "You haven't purchased any product","Warning",2);
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
    
     public static void main(String args[]) {
