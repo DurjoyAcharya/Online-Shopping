@@ -16,9 +16,7 @@ import java.util.logging.Logger;
  * @author rupkotha
  */
 public class DbConfig {
-   public static String username="root";
-   public static String password="";
-   public static String url="jdbc:mysql://localhost:3306/rupkotha";//for windows
+
    
    public static Connection con=null;
 
