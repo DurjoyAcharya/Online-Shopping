@@ -108,4 +108,50 @@ public class SupplierDao {
         if (ps.executeUpdate()>0)
             JOptionPane.showMessageDialog(null,"Supplier Data Successfully Updated");
     }
+     
+        public int getSupplierId(String email) throws SQLException {
+        int id=0;
+        String sql="select sid from supplier where semail=?";
+        ps=con.prepareStatement(sql);
+        ps.setString(1,email);
+        rs=ps.executeQuery();
+        if (rs.next())
+            id=rs.getInt(1);
+        return id;
+    }
+        
+        
+        public String[] getSupplierData(int sid) throws SQLException {
+        String[] value=new String[7];
+        String sql="select * from supplier where sid=?";
+        ps=con.prepareStatement(sql);
+        ps.setInt(1,sid);
+        rs = ps.executeQuery();
+        if (rs.next()){
+            value[0]=rs.getString(1);
+            value[1]=rs.getString(2);
+            value[2]=rs.getString(3);
+            value[3]=rs.getString(4);
+            value[4]=rs.getString(5);
+            value[5]=rs.getString(6);
+            value[6]=rs.getString(7);
+        }
+        return value;
+    }
+        
+       public void deleteSupplierdata(int id){
+       String sql="DELETE FROM supplier WHERE sid=?";
+        int showConfirmDialog = JOptionPane.showConfirmDialog(null, "Are you sure want to delete this account? ","Remove Account",JOptionPane.OK_CANCEL_OPTION,0);
+        if(showConfirmDialog==JOptionPane.OK_OPTION){
+           try {
+               ps=con.prepareStatement(sql);
+               ps.setInt(1, id);
+               if(ps.executeUpdate()>0)
+                   JOptionPane.showMessageDialog(null, "Account Successfully Removed");
+           } catch (SQLException ex) {
+               Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+           }
+            
+        }
+    }
 }
