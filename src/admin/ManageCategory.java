@@ -23,9 +23,12 @@ public class ManageCategory extends javax.swing.JFrame {
     
     public CategoryDao category;
     public DefaultTableModel model;
+        public int rowIndex;
     public ManageCategory() {
         category=new CategoryDao();
+        rowIndex=1010;
         initComponents();
+        init();
     }
 
     /**
@@ -86,10 +89,15 @@ public class ManageCategory extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 118, 540, 360));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 270, -1));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, 270, -1));
 
         jTextField2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 280, -1));
@@ -152,6 +160,11 @@ public class ManageCategory extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton4.setText("Update");
         jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 110, 40));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -180,12 +193,14 @@ public class ManageCategory extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(ManageCategory.class.getName()).log(Level.SEVERE, null, ex);
         }
+        tableVeriation();
         
     }
     
     
     //category table veriation
     private void tableVeriation(){
+        category.getCategoryValue(jTable1, "");
         model=(DefaultTableModel)jTable1.getModel();
         jTable1.setRowHeight(30);
         jTable1.setShowGrid(true);
@@ -220,12 +235,41 @@ public class ManageCategory extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        System.out.println("Save Category");
+        try {
+            var cid =Integer.parseInt(jTextField2.getText());
+            var cname=jTextField3.getText();
+            var cdesc=jTextField4.getText();
+            category.insertData(cid, cname, cdesc);
+            jTable1.setModel(new DefaultTableModel(null,new Object[]{"Category Id","Category Name","Description"}));
+            category.getCategoryValue(jTable1, "");
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageCategory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        model=(DefaultTableModel) jTable1.getModel();
+        rowIndex=jTable1.getSelectedRow();
+        jTextField2.setText(model.getValueAt(rowIndex,0).toString());
+        jTextField3.setText(model.getValueAt(rowIndex,1).toString());
+        jTextField4.setText(model.getValueAt(rowIndex,2).toString());
+        
+        
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        try {
+            var id=Integer.parseInt(jTextField2.getText());
+            var name=jTextField3.getText();
+            var desc=jTextField4.getText();
+            category.updateCategory(id, name, desc);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageCategory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
