@@ -19,6 +19,7 @@ public class DbConfig {
 
    
    public static Connection con=null;
+   public String user="root";
 
    public static Connection getCon() throws SQLException{
        try{
