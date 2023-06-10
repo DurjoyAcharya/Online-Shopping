@@ -93,6 +93,12 @@ public class ManageProducts extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 560, -1));
+
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
+            }
+        });
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 270, -1));
 
         jTextField2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
@@ -195,7 +201,8 @@ public class ManageProducts extends javax.swing.JFrame {
            productsC=new String[product.getMaxRowElement()];
            productsC=product.getCategories();
            for(String str:productsC)
-               jComboBox1.addItem(str);
+               jComboBox1.addItem(str);    
+          productTable();
            
        } catch (SQLException ex) {
            Logger.getLogger(ManageProducts.class.getName()).log(Level.SEVERE, null, ex);
@@ -212,6 +219,7 @@ public class ManageProducts extends javax.swing.JFrame {
     }
     
     private void productTable(){
+        product.getProductValue(jTable1, "");
         model=(DefaultTableModel) jTable1.getModel();
         jTable1.setRowHeight(30);
         jTable1.setShowGrid(true);
@@ -229,7 +237,21 @@ public class ManageProducts extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
+        int rowIndex=0;
+        model=(DefaultTableModel) jTable1.getModel();
+        rowIndex=jTable1.getSelectedRow();
+        jTextField2.setText(model.getValueAt(rowIndex,0).toString());
+        jTextField3.setText(model.getValueAt(rowIndex,1).toString());
+        jTextField5.setText(model.getValueAt(rowIndex,3).toString());
+        jTextField4.setText(model.getValueAt(rowIndex,4).toString());
+        
+        String cat=model.getValueAt(rowIndex, 2).toString();
+        
+        for(int i=0;i<jComboBox1.getItemCount();i++)
+            if(jComboBox1.getItemAt(i).equals(cat)){
+                jComboBox1.setSelectedIndex(i);
+                break;
+            }  
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -241,17 +263,45 @@ public class ManageProducts extends javax.swing.JFrame {
         int id=Integer.parseInt(jTextField2.getText());
         var pname=jTextField3.getText();
         var cat=jComboBox1.getSelectedItem().toString();
-        int qty=Integer.parseInt(jTextField4.getText());
-        if(product.isIdExist(id))
-            Double price=Double.parseDouble(jTextField5.getText());
+        int qty=Integer.parseInt(jTextField5.getText());
+        double price=Double.parseDouble(jTextField4.getText());
+        if(!product.isIdExist(id))
+        {
+            if(!product.isProductCategoryExist(cat, pname)){
+                try {
+                    product.insertData(id, pname, cat, qty, price);
+                      jTable1.setModel(new DefaultTableModel(null,new Object[]{
+                "Product ID",
+                "Product Name",
+                "Category Name",
+                "Quantity",
+                "Price" 
+                 }));
+                product.getProductValue(jTable1, "");
+                clear();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ManageProducts.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }else{
+                  JOptionPane.showMessageDialog(this, "Product & Category Already Exists","Warning",2);
+            }
+        }
         else
             JOptionPane.showMessageDialog(this, "Product Id Doesn't exists","Warning",2);
-                    
-             
-        
-        
-        
+           
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+      
+          jTable1.setModel(new DefaultTableModel(null,new Object[]{
+                "Product ID",
+                "Product Name",
+                "Category Name",
+                "Quantity",
+                "Price" 
+                 }));
+                product.getProductValue(jTable1, jTextField1.getText());
+    }//GEN-LAST:event_jTextField1KeyReleased
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(()-> {

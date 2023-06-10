@@ -42,22 +42,29 @@ public class ProductDao {
         return row;
     }
      public void insertData(
-            int cid,
+            int pid,
+            String pname,
             String cname,
-            String cdesc
+            int qty,
+            double price
             )throws SQLException {
-        String sql="INSERT INTO category VALUES(?,?,?)";
+        String sql="INSERT INTO product VALUES(?,?,?,?,?)";
         ps=con.prepareStatement(sql);
-        ps.setInt(1,cid);
-        ps.setString(2,cname);
-        ps.setString(3,cdesc);
+        ps.setInt(1,pid);
+        ps.setString(2,pname);
+        ps.setString(3,cname);
+        ps.setInt(4,qty);
+        ps.setDouble(5, price);
+        
         if (ps.executeUpdate()>0){
             JOptionPane.showMessageDialog(null,
-                    "Category Successfully Added ","Category Added",JOptionPane.INFORMATION_MESSAGE);
+                    "Product successfully added ","Product Added",JOptionPane.INFORMATION_MESSAGE);
         }
     }
-      public void getCategoryValue(JTable table,String search){
-        var sql="select * from category where concat(cid,cname,cdesc) like ? order by cid desc";
+     
+     
+      public void getProductValue(JTable table,String search){
+        var sql="select * from product where concat(pid,pname,cname) like ? order by pid desc";
         try {
             ps=con.prepareStatement(sql);
             ps.setString(1,"%"+search+"%");
@@ -65,33 +72,37 @@ public class ProductDao {
             DefaultTableModel model=(DefaultTableModel)table.getModel();
             Object[] rowData;
             while(rs.next()){
-                rowData=new Object[3];
+                rowData=new Object[5];
                 rowData[0]=rs.getInt(1);
                 rowData[1]=rs.getString(2);
                 rowData[2]=rs.getString(3);
+                rowData[3]=rs.getInt(4);
+                rowData[4]=rs.getDouble(5);
                 model.addRow(rowData);
             }} 
             catch (SQLException ex) {
-            Logger.getLogger(CategoryDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
       
       
-      public void updateCategory(
-            int cid,
+      public void updateProduct(
+            int pid,
+            String pname,
             String cname,
-            String cdesc
+            int qty,
+            double price
     ) throws SQLException {
-        String sql="UPDATE category SET cname=?,cdesc=? WHERE cid=?";
+        String sql="UPDATE product SET pname=?,cname=?,qty=?,pprice=? WHERE pid=?";
         ps=con.prepareStatement(sql);
-        ps.setString(1,cname);
-        ps.setString(2,cdesc);
-        ps.setInt(3,cid);
+        ps.setString(1,pname);
+        ps.setString(2,cname);
+        ps.setInt(3,qty);
+        ps.setDouble(4,price);
+        ps.setInt(5, pid);
         if (ps.executeUpdate()>0)
-            JOptionPane.showMessageDialog(null,"Category Data Successfully Updated");
+            JOptionPane.showMessageDialog(null,"Product data successfully updated");
     }
-      
-      
       public int countCategories(){
           int total=0;
           String sql="select count(*) as 'total' from category";
@@ -128,6 +139,21 @@ public class ProductDao {
            try {
                ps=con.prepareStatement(sql);
                ps.setInt(1, id);
+               rs=ps.executeQuery();
+               if(rs.next())
+                   return true;
+           } catch (SQLException ex) {
+               Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           return false;
+      }
+      
+        public boolean isProductCategoryExist(String product,String category){
+         var sql="select * from product where pname=? and cname=?";
+           try {
+               ps=con.prepareStatement(sql);
+               ps.setString(1, product);
+               ps.setString(2, category);
                rs=ps.executeQuery();
                if(rs.next())
                    return true;

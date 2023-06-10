@@ -209,6 +209,11 @@ public class ManageSuppliers extends javax.swing.JFrame {
                 jTextField8ActionPerformed(evt);
             }
         });
+        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField8KeyReleased(evt);
+            }
+        });
         jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 280, 30));
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -284,6 +289,19 @@ public class ManageSuppliers extends javax.swing.JFrame {
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         clear();
     }//GEN-LAST:event_btnClearActionPerformed
+
+    private void jTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyReleased
+          jTable1.setModel(new DefaultTableModel(null,new Object[]{
+                "User ID",
+                "UserName",
+                "Email",
+                "Password",
+                "Phone",
+                "Address Line 1",
+                "Address Line 2"
+        }));
+        supplier.getSupplierValue(jTable1,jTextField8.getText());
+    }//GEN-LAST:event_jTextField8KeyReleased
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {                                     
         model=(DefaultTableModel) jTable1.getModel();
