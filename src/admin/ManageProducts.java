@@ -137,6 +137,11 @@ public class ManageProducts extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton2.setText("Delete");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 120, 40));
 
         jButton3.setBackground(new java.awt.Color(7, 222, 152));
@@ -154,6 +159,11 @@ public class ManageProducts extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton4.setText("Update");
         jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 110, 40));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -302,6 +312,29 @@ public class ManageProducts extends javax.swing.JFrame {
                  }));
                 product.getProductValue(jTable1, jTextField1.getText());
     }//GEN-LAST:event_jTextField1KeyReleased
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+        int id=Integer.parseInt(jTextField2.getText());
+        var pname=jTextField3.getText();
+        var cat=jComboBox1.getSelectedItem().toString();
+        int qty=Integer.parseInt(jTextField5.getText());
+        double price=Double.parseDouble(jTextField4.getText());
+       try {
+           product.updateProduct(id, pname, cat, qty, price);
+       } catch (SQLException ex) {
+           Logger.getLogger(ManageProducts.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int id=Integer.parseInt(jTextField2.getText());
+       try {
+           product.deleteProduct(id);
+       } catch (SQLException ex) {
+           Logger.getLogger(ManageProducts.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(()-> {

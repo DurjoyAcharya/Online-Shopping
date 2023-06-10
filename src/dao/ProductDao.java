@@ -93,7 +93,7 @@ public class ProductDao {
             int qty,
             double price
     ) throws SQLException {
-        String sql="UPDATE product SET pname=?,cname=?,qty=?,pprice=? WHERE pid=?";
+        String sql="UPDATE product SET pname=?,cname=?,pqty=?,pprice=? WHERE pid=?";
         ps=con.prepareStatement(sql);
         ps.setString(1,pname);
         ps.setString(2,cname);
@@ -103,6 +103,20 @@ public class ProductDao {
         if (ps.executeUpdate()>0)
             JOptionPane.showMessageDialog(null,"Product data successfully updated");
     }
+      
+            
+      public void deleteProduct(
+            int pid
+    ) throws SQLException {
+        String sql="DELETE FROM `product` WHERE  pid=?";
+        ps=con.prepareStatement(sql);
+        ps.setInt(1, pid);
+        if (ps.executeUpdate()>0)
+            JOptionPane.showMessageDialog(null,"Product Deleted Successfully");
+    }
+      
+      
+      
       public int countCategories(){
           int total=0;
           String sql="select count(*) as 'total' from category";
