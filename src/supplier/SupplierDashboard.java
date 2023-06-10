@@ -247,9 +247,9 @@ public class SupplierDashboard extends javax.swing.JFrame {
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
         try {
-            jPanel3.setBackground(Color.red);
-            jLabel18.setForeground(Color.blue);
-            jLabel17.setVisible(true);
+//            jPanel3.setBackground(Color.red);
+//            jLabel18.setForeground(Color.blue);
+//            jLabel17.setVisible(true);
             SupplierAccount  supplierAccount = new  SupplierAccount();
             supplierAccount.setVisible(true);
             supplierAccount.pack();

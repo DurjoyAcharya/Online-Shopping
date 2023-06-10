@@ -170,6 +170,11 @@ public class SupplierAccount extends javax.swing.JFrame {
         btnUpdate.setText("Update");
         btnUpdate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnUpdate.setBorderPainted(false);
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 140, 30));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
@@ -198,9 +203,9 @@ public class SupplierAccount extends javax.swing.JFrame {
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         setVisible(false);
-        SupplierDashboard.jPanel3.setBackground(Color.red);
-        SupplierDashboard.jLabel18.setForeground(Color.blue);
-        SupplierDashboard.jLabel17.setVisible(true);
+//        SupplierDashboard.jPanel3.setBackground(Color.red);
+//        SupplierDashboard.jLabel18.setForeground(Color.blue);
+//        SupplierDashboard.jLabel17.setVisible(true);
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -209,6 +214,23 @@ public class SupplierAccount extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        try {
+            System.out.println("Done ..........");
+            int id=Integer.parseInt(jTextField1.getText());
+            String name=jTextField2.getText();
+            String email=jTextField3.getText();
+            String pass=String.valueOf(jPasswordField1.getPassword());
+            String phone=jTextField4.getText();
+            var address1=jTextField6.getText();
+            var address2=jTextField7.getText();
+            supplier.updateSupplier(id,name,email,pass,phone,address1,address2);
+            this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(SupplierAccount.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     public static void main(String args[]) {
       

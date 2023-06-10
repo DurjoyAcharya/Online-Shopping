@@ -4,7 +4,12 @@ package admin;
 import static admin.AdminDashboard.jLabel34;
 import static admin.AdminDashboard.jLabel4;
 import static admin.AdminDashboard.jPanel1;
+import dao.CategoryDao;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,7 +20,11 @@ public class ManageCategory extends javax.swing.JFrame {
     /**
      * Creates new form Category
      */
+    
+    public CategoryDao category;
+    public DefaultTableModel model;
     public ManageCategory() {
+        category=new CategoryDao();
         initComponents();
     }
 
@@ -110,6 +119,11 @@ public class ManageCategory extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton1.setText("Clear");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 110, 40));
 
         jButton2.setBackground(new java.awt.Color(7, 222, 152));
@@ -127,6 +141,11 @@ public class ManageCategory extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton3.setText("Save");
         jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 120, 40));
 
         jButton4.setBackground(new java.awt.Color(7, 222, 152));
@@ -155,6 +174,36 @@ public class ManageCategory extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void init(){
+        try {
+            jTextField2.setText(String.valueOf(category.getMaxRowElement()));
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageCategory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
+    //category table veriation
+    private void tableVeriation(){
+        model=(DefaultTableModel)jTable1.getModel();
+        jTable1.setRowHeight(30);
+        jTable1.setShowGrid(true);
+        jTable1.setGridColor(Color.gray);
+        jTable1.setBackground(Color.WHITE);
+        jTable1.setSelectionBackground(Color.LIGHT_GRAY);
+    }
+    
+    
+    public void clear(){
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+    }
+    
+    
+    
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         setVisible(false);
         AdminDashboard.jPanel1.setBackground(Color.red);
@@ -165,6 +214,14 @@ public class ManageCategory extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       clear();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        System.out.println("Save Category");
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

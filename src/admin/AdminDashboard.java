@@ -390,12 +390,16 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel38MouseClicked
-        jPanel4.setBackground(Color.red);
-        jLabel38.setForeground(Color.blue);
-        jLabel37.setVisible(true);
-        ManageUsers manageUsers= new ManageUsers();
-        manageUsers.setVisible(true);
-        manageUsers.pack();
+        try {
+            jPanel4.setBackground(Color.red);
+            jLabel38.setForeground(Color.blue);
+            jLabel37.setVisible(true);
+            ManageUsers manageUsers= new ManageUsers();
+            manageUsers.setVisible(true);
+            manageUsers.pack();
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_jLabel38MouseClicked
 
@@ -414,12 +418,16 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel40MouseClicked
 
     private void jLabel42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel42MouseClicked
-        jPanel14.setBackground(Color.red);
-        jLabel42.setForeground(Color.blue);
-        jLabel41.setVisible(true);
-        ManageSuppliers manageSuppliers = new ManageSuppliers ();
-        manageSuppliers .setVisible(true);
-        manageSuppliers .pack();
+        try {
+            jPanel14.setBackground(Color.red);
+            jLabel42.setForeground(Color.blue);
+            jLabel41.setVisible(true);
+            ManageSuppliers manageSuppliers = new ManageSuppliers ();
+            manageSuppliers .setVisible(true);
+            manageSuppliers .pack();
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jLabel42MouseClicked
 
     private void jLabel44MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel44MouseClicked
