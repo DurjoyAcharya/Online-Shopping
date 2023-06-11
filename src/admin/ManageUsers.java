@@ -226,8 +226,7 @@ public class ManageUsers extends javax.swing.JFrame {
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         setVisible(false);
-        AdminDashboard.jPanel4.setBackground(Color.red);
-        AdminDashboard.jLabel38.setForeground(Color.blue);
+     
         AdminDashboard.jLabel37.setVisible(true);
     }//GEN-LAST:event_jLabel16MouseClicked
 

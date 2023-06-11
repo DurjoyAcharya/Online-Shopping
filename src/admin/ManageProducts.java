@@ -241,8 +241,7 @@ public class ManageProducts extends javax.swing.JFrame {
     
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         setVisible(false);
-        AdminDashboard.jPanel3.setBackground(Color.red);
-        AdminDashboard.jLabel6.setForeground(Color.green);
+     
         AdminDashboard.jLabel36.setVisible(true);
     }//GEN-LAST:event_jLabel16MouseClicked
 

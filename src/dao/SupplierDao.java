@@ -154,4 +154,37 @@ public class SupplierDao {
             
         }
     }
+       
+       public int countSuppliers(){
+           int total =0;
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery("select count(*) as 'total' from supplier");
+            if(rs.next())
+                total=rs.getInt(1);
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SupplierDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           return total;
+       }
+       
+       public String[] getSuppliers(){
+           String[] suppliers=new String[countSuppliers()]; 
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery("select * from supplier");
+            int i=0;
+            while(rs.next()){
+                suppliers[i]=rs.getString(2);
+                i++;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SupplierDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           return suppliers;
+       }
+       
 }

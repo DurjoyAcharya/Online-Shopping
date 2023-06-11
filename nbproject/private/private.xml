@@ -2,31 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/admin/ManageSuppliers.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/user/Purchase.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/dao/PurchaseDao.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/dao/RecoverDao.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/user/UserDashboard.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/admin/ManageUsers.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/admin/Transaction.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/supplier/MyDeliveries.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/connection/DbConfig.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/admin/AddSupplier.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/user/UserAccount.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/admin/SelectSupplier.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/admin/ManageCategory.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/supplier/SupplierAccount.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/admin/AdminDashboard.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/dao/CategoryDao.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/dao/SupplierDao.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/supplier/SupplierDashboard.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/dao/UserDao.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/user/PurchaseDetails.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/user/Login.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/admin/ManageProducts.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/dao/ProductDao.java</file>
-            <file>file:/home/rupkotha/Downloads/Online%20Shopping/src/supplier/Delivery.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

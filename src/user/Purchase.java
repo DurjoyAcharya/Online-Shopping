@@ -275,8 +275,6 @@ public class Purchase extends javax.swing.JFrame {
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         setVisible(false);
-        UserDashboard.jPanel10.setBackground(Color.red);
-        UserDashboard.jLabel19.setForeground(Color.blue);
         UserDashboard.jLabel18.setVisible(true);
     }//GEN-LAST:event_jLabel15MouseClicked
 
@@ -321,9 +319,6 @@ public class Purchase extends javax.swing.JFrame {
             String pname = jTextField3.getText();
 
             model = (DefaultTableModel) jTable1.getModel();
-
-            //price=Double.parseDouble( model.getValueAt(2, 4).toString());
-            //String t=String.format("%.2f",price+(double)newQty);
             total += price * (double) newQty;
             String t = String.format("%.2f", price * (double) newQty);
             Object[] data = {pId, proId, pname, newQty, price, t};

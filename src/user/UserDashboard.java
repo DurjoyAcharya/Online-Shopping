@@ -74,7 +74,7 @@ public class UserDashboard extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 213, 128));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 30)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/shopping.png"))); // NOI18N
         jLabel1.setText(" JISA ONLINE SHOPPING");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 430, -1));
@@ -262,8 +262,7 @@ public class UserDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-        jPanel10.setBackground(Color.red);
-        jLabel19.setForeground(Color.blue);
+
         jLabel18.setVisible(true);
         Purchase purchase= new Purchase();
         purchase.setVisible(true);
@@ -271,8 +270,7 @@ public class UserDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel19MouseClicked
 
     private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
-        jPanel12.setBackground(Color.red);
-        jLabel21.setForeground(Color.blue);
+
         jLabel20.setVisible(true);
         PurchaseDetails purchaseDetails= new PurchaseDetails();
         purchaseDetails.setVisible(true);
@@ -285,7 +283,7 @@ public class UserDashboard extends javax.swing.JFrame {
             var useracc=new UserAccount();
             useracc.setVisible(true);
             useracc.pack();
-           // this.dispose();
+            this.dispose();
         } catch (SQLException ex) {
             Logger.getLogger(UserDashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
