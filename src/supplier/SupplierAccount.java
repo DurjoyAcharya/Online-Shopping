@@ -205,7 +205,7 @@ public class SupplierAccount extends javax.swing.JFrame {
         setVisible(false);
 //        SupplierDashboard.jPanel3.setBackground(Color.red);
 //        SupplierDashboard.jLabel18.setForeground(Color.blue);
-//        SupplierDashboard.jLabel17.setVisible(true);
+        SupplierDashboard.jLabel17.setVisible(true);
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

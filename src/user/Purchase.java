@@ -36,10 +36,11 @@ public class Purchase extends javax.swing.JFrame {
     public double total = 0.0;
 
     public SimpleDateFormat df;
-
+    public Date date;
     public Purchase() {
 
         df = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+      
         product = new ProductDao();
         purchase = new PurchaseDao();
         initComponents();

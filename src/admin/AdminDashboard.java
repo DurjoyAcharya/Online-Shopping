@@ -370,8 +370,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel34MouseClicked
-        jPanel1.setBackground(Color.red);
-        jLabel34.setForeground(Color.blue);
+     
         jLabel4.setVisible(true);
         ManageCategory manageCategory = new ManageCategory();
         manageCategory.setVisible(true);
@@ -379,8 +378,6 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel34MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        jPanel3.setBackground(Color.red);
-        jLabel6.setForeground(Color.blue);
         jLabel36.setVisible(true);
         ManageProducts manageProducts = new ManageProducts();
         manageProducts.setVisible(true);
@@ -391,8 +388,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void jLabel38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel38MouseClicked
         try {
-            jPanel4.setBackground(Color.red);
-            jLabel38.setForeground(Color.blue);
             jLabel37.setVisible(true);
             ManageUsers manageUsers= new ManageUsers();
             manageUsers.setVisible(true);
@@ -404,8 +399,6 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel38MouseClicked
 
     private void jLabel40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel40MouseClicked
-        jPanel12.setBackground(Color.red);
-        jLabel40.setForeground(Color.blue);
         jLabel39.setVisible(true);
         AddSupplier addSupplier = null;
         try {
@@ -419,8 +412,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void jLabel42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel42MouseClicked
         try {
-            jPanel14.setBackground(Color.red);
-            jLabel42.setForeground(Color.blue);
             jLabel41.setVisible(true);
             ManageSuppliers manageSuppliers = new ManageSuppliers ();
             manageSuppliers .setVisible(true);
@@ -431,8 +422,6 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel42MouseClicked
 
     private void jLabel44MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel44MouseClicked
-        jPanel16.setBackground(Color.red);
-        jLabel44.setForeground(Color.blue);
         jLabel43.setVisible(true);
         SelectSupplier selectSupplier = new SelectSupplier ();
         selectSupplier .setVisible(true);
@@ -440,8 +429,6 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel44MouseClicked
 
     private void jLabel46MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel46MouseClicked
-        jPanel18.setBackground(Color.red);
-        jLabel46.setForeground(Color.blue);
         jLabel45.setVisible(true);
         Transaction transaction = new Transaction ();
         transaction .setVisible(true);

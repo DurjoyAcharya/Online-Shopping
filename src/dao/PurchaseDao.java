@@ -12,6 +12,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -103,5 +106,63 @@ public class PurchaseDao {
         ps.setInt(2,pid);
         ps.executeUpdate();
     }
-
+    
+    public void refund(int id){
+        //int value=JOptionPane.showMessageDialog(null, "Are you sure to refund this product");
+    }
+    
+    
+    public void getOnTheWayProduct(JTable table,String search,String supplier) throws SQLException{
+        String sql="select * from purchase where concat(id,pid,uname,product_name) like ? and supplier = ? and status = 'On the way' order by id desc";
+        ps=con.prepareStatement(sql);
+        ps.setString(1,"%"+ search+"%");
+        ps.setString(2,supplier);
+        rs=ps.executeQuery();
+        DefaultTableModel model=(DefaultTableModel)table.getModel();
+        Object[] value;
+        while(rs.next()){
+            value=new Object[14];
+            value[0]=rs.getInt(1);
+            value[1]=rs.getInt(2);
+            value[2]=rs.getString(3);
+            value[3]=rs.getString(4);
+            value[4]=rs.getInt(5);
+            value[5]=rs.getString(6);
+            value[6]=rs.getInt(7);
+            value[7]=rs.getDouble(8);
+            value[8]=rs.getDouble(9);
+            value[9]=rs.getString(10);
+           value[10]=rs.getString(11);
+           value[11]=rs.getString(12);
+           value[12]=rs.getString(13);
+           value[13]=rs.getString(14);
+           model.addRow(value);  
+        }
+    }
+    
+    public void setSuppStatus(int id,String supp,String status) throws SQLException{
+        String sql="update purchase set supplier = ?, status = ? where id=?";
+        con.prepareStatement(sql);
+        ps.setString(1, supp);
+        ps.setString(2, status);
+        ps.setInt(3, id);
+       if(ps.executeUpdate()>0)
+           JOptionPane.showMessageDialog(null, "Supplier Successfully Selected...");
+       
+    }
+    
+    
+       
+    public void setDateStatus(int id,String rDate,String status) throws SQLException{
+        String sql="update purchase set receive_date = ?, status = ? where id=?";
+        con.prepareStatement(sql);
+        ps.setString(1, rDate);
+        ps.setString(2, status);
+        ps.setInt(3, id);
+       if(ps.executeUpdate()>0)
+           JOptionPane.showMessageDialog(null, "Product Successfully Delivered...");
+       
+    }
+    
+ 
 }

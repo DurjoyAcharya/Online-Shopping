@@ -114,6 +114,11 @@ public class SupplierDashboard extends javax.swing.JFrame {
 
         jPanel11.setBackground(new java.awt.Color(241, 165, 18));
         jPanel11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel11MouseClicked(evt);
+            }
+        });
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/delivery_light.png"))); // NOI18N
@@ -226,18 +231,21 @@ public class SupplierDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        jPanel11.setBackground(Color.red);
-        jLabel11.setForeground(Color.blue);
+
         jLabel9.setVisible(true);
-        Delivery delivery = new Delivery();
-        delivery.setVisible(true);
+        try {
+           Delivery delivery = new Delivery();
+              delivery.setVisible(true);
         delivery.pack();
+        } catch (SQLException ex) {
+            Logger.getLogger(SupplierDashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
         
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
-        jPanel1.setBackground(Color.red);
-        jLabel15.setForeground(Color.blue);
+     
         jLabel13.setVisible(true);
         MyDeliveries myDeliveries = new MyDeliveries();
         myDeliveries.setVisible(true);
@@ -247,8 +255,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
         try {
-//            jPanel3.setBackground(Color.red);
-//            jLabel18.setForeground(Color.blue);
+
 //            jLabel17.setVisible(true);
             SupplierAccount  supplierAccount = new  SupplierAccount();
             supplierAccount.setVisible(true);
@@ -258,9 +265,11 @@ public class SupplierDashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel18MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jPanel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel11MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel11MouseClicked
+
+   
     public static void main(String args[]) {
      
         java.awt.EventQueue.invokeLater(()-> {

@@ -4,9 +4,7 @@
  */
 package admin;
 
-import static admin.AdminDashboard.jLabel43;
-import static admin.AdminDashboard.jLabel44;
-import static admin.AdminDashboard.jPanel16;
+
 import dao.SupplierDao;
 import java.awt.Color;
 import java.sql.SQLException;
@@ -45,7 +43,12 @@ public class SelectSupplier extends javax.swing.JFrame {
     }
     
     private void suppTable(){
-        
+          model=(DefaultTableModel) jTable1.getModel();
+        jTable1.setRowHeight(30);
+        jTable1.setShowGrid(true);
+        jTable1.setGridColor(Color.black);
+        jTable1.setBackground(Color.WHITE);
+        jTable1.setSelectionBackground(Color.LIGHT_GRAY);
     }
     
   

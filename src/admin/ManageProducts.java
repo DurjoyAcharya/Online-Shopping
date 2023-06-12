@@ -98,6 +98,9 @@ public class ManageProducts extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField1KeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
         });
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 270, -1));
 
@@ -301,7 +304,7 @@ public class ManageProducts extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
-      
+        System.out.println("Done");
           jTable1.setModel(new DefaultTableModel(null,new Object[]{
                 "Product ID",
                 "Product Name",
@@ -334,6 +337,10 @@ public class ManageProducts extends javax.swing.JFrame {
            Logger.getLogger(ManageProducts.class.getName()).log(Level.SEVERE, null, ex);
        }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1KeyTyped
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(()-> {

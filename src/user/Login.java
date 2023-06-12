@@ -372,7 +372,7 @@ public class Login extends javax.swing.JFrame {
                        UserDashboard.userEmail.setText(email);
                        this.dispose();
                    }else{
-                       JOptionPane.showMessageDialog(this,"Incorrect email or Password","Login Failed",2);
+                       JOptionPane.showMessageDialog(this,"Incorrect email or password","Login Failed",2);
                    }
                } catch (SQLException ex) {
                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
@@ -381,13 +381,8 @@ public class Login extends javax.swing.JFrame {
        }
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-       
 
-        /* Create and display the form */
+    public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(()-> {
                 new Login().setVisible(true);
         });

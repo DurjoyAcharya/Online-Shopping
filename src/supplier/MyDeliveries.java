@@ -84,8 +84,7 @@ public class MyDeliveries extends javax.swing.JFrame {
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         setVisible(false);
-        SupplierDashboard.jPanel1.setBackground(Color.red);
-        SupplierDashboard.jLabel15.setForeground(Color.blue);
+  
         SupplierDashboard.jLabel13.setVisible(true);
         
     }//GEN-LAST:event_jLabel6MouseClicked

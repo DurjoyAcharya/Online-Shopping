@@ -31,6 +31,7 @@ public class ManageSuppliers extends javax.swing.JFrame {
         rowIndex=1001;
         initComponents();
         suppliersTable();
+       
     }
 
   private void clear(){
@@ -176,6 +177,11 @@ public class ManageSuppliers extends javax.swing.JFrame {
         btnDelete1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnDelete1.setText("Delete");
         btnDelete1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelete1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnDelete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 130, 30));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -238,8 +244,7 @@ public class ManageSuppliers extends javax.swing.JFrame {
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         setVisible(false);
-        AdminDashboard.jPanel14.setBackground(Color.red);
-        AdminDashboard.jLabel42.setForeground(Color.blue);
+      
         AdminDashboard.jLabel41.setVisible(true);
     }//GEN-LAST:event_jLabel16MouseClicked
 
@@ -302,6 +307,11 @@ public class ManageSuppliers extends javax.swing.JFrame {
         }));
         supplier.getSupplierValue(jTable1,jTextField8.getText());
     }//GEN-LAST:event_jTextField8KeyReleased
+
+    private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
+        int id=Integer.parseInt( jTextField1.getText());
+        supplier.deleteSupplierdata(id);
+    }//GEN-LAST:event_btnDelete1ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {                                     
         model=(DefaultTableModel) jTable1.getModel();

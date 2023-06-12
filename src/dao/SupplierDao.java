@@ -186,5 +186,16 @@ public class SupplierDao {
         }
            return suppliers;
        }
+     
+       public String getSupplierName(String email) throws SQLException {
+        String name="";
+        String sql="select sname from supplier where semail=?";
+        ps=con.prepareStatement(sql);
+        ps.setString(1,email);
+        rs=ps.executeQuery();
+        if (rs.next())
+            name=rs.getString(1);
+        return name;
+    }
        
 }

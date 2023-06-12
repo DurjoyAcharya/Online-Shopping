@@ -35,7 +35,7 @@ public class ManageUsers extends javax.swing.JFrame {
 
     
     private void init() throws SQLException {
-        uid = user.getUserId("monir@buet.ac.bd");//UserDashboard.userEmail.getText()
+        uid = user.getUserId(UserDashboard.userEmail.getText());//
         values=user.getUserData(uid);//
         setValue();
     }
