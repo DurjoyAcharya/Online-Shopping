@@ -9,6 +9,7 @@ import dao.PurchaseDao;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 import java.util.logging.Level;
@@ -27,7 +28,7 @@ public class Purchase extends javax.swing.JFrame {
 
     public PurchaseDao purchase;
 
-    public DefaultTableModel model;
+    public DefaultTableModel model,model1;
     public ProductDao product;
     public int qty = 0;
     public double price = 0.0;
@@ -37,6 +38,7 @@ public class Purchase extends javax.swing.JFrame {
 
     public SimpleDateFormat df;
     public Date date;
+    public Object[] dummy=new Object[5];
     public Purchase() {
 
         df = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
@@ -204,6 +206,11 @@ public class Purchase extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton3.setText("Print");
         jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 95, 38));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -335,37 +342,61 @@ public class Purchase extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        System.out.println("");
-        model = (DefaultTableModel) jTable2.getModel();
-        if (model.getRowCount() > 0) {
-            String[] value = new String[5];
-            String email = UserDashboard.userEmail.getText();
+        model = (DefaultTableModel) jTable1.getModel();
+        model1 = (DefaultTableModel) jTable2.getModel();
+        String[] value = new String[5];
+     
+            String email =UserDashboard.userEmail.getText();
+                    
+                    
             value = purchase.getValue(email);
             int uid = Integer.parseInt(value[0]);
             String uname = value[1];
             String uPhone = value[2];
             String address = value[3] + ", " + value[4];
             String purchaseDate = df.format(new Date());
-            for (int i = 0; i < model.getRowCount(); i++) {
+            for (int i = 0; i <model.getRowCount(); i++) {
                 int id = Integer.parseInt(model.getValueAt(i, 0).toString());
-                int pid = Integer.parseInt(model.getValueAt(i, 1).toString());
+                
+              
+                int pid = Integer.parseInt(model.getValueAt(i, 0).toString());
+                dummy[0]=pid;
+                
+                ++id;
                 String pName = model.getValueAt(i, 2).toString();
-                int q = Integer.parseInt(model.getValueAt(i, 3).toString());
-                 double pri=  Double.parseDouble(model.getValueAt(1, 4).toString());
-               double tot= Double.parseDouble(model.getValueAt(i, 5).toString());
-                try {
+                dummy[1]=pName;
+                int q = Integer.parseInt(model1.getValueAt(i, 3).toString());
+                
+                double pri=  Double.parseDouble(model.getValueAt(i, 4).toString());
+                dummy[3]=pri;
+                double tot=total;
+                dummy[4]=tot;
+               try {
                     purchase.insert(id, uid, uname, uPhone, pid, pName, q, pri, tot, purchaseDate, address, null, null, "Pending");
                     int newQuantity=purchase.getQty(pid)-q;
+                   dummy[2]=newQuantity;
                     purchase.qtyUpdate(pid, newQuantity);
                 } catch (SQLException ex) {
                     Logger.getLogger(Purchase.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        } else {
-            JOptionPane.showMessageDialog(this, "You haven't purchased any product", "Warning", 2);
-        }
+            
+        
+            JOptionPane.showMessageDialog(this, "Product Purchase Successfully", "Parchase Product", NORMAL);
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        var print=new Print();
+        Print.Id.setText(dummy[0].toString());
+        Print.name.setText(dummy[1].toString());
+        Print.qty.setText(dummy[2].toString());
+        Print.p.setText(dummy[3].toString());
+        Print.Total.setText(dummy[4].toString());
+        print.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public static void main(String args[]) {
 

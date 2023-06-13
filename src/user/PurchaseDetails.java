@@ -4,7 +4,19 @@
  */
 package user;
 
+import dao.PurchaseDao;
+import dao.UserDao;
+
+import javax.swing.table.DefaultTableModel;
 import java.awt.Color;
+import java.io.ObjectStreamException;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import static user.UserDashboard.jLabel20;
 import static user.UserDashboard.jLabel21;
 import static user.UserDashboard.jPanel12;
@@ -12,9 +24,45 @@ import static user.UserDashboard.jPanel12;
 
 public class PurchaseDetails extends javax.swing.JFrame {
 
- 
-    public PurchaseDetails() {
+
+    public UserDao user=new UserDao();
+    public DefaultTableModel model;
+    public PurchaseDao pd=new PurchaseDao();
+    SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+    Date date=new Date();
+    private int uId;
+    public PurchaseDetails() throws SQLException {
         initComponents();
+        init();
+    }
+
+    private void init(){
+            jTextField4.setText(df.format(date));
+        try {
+            uId= user.getUserId(UserDashboard.userEmail.getText());
+            productTable();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    private void clear()
+    {
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTable1.clearSelection();
+    }
+    private void productTable(){
+        pd.getProductValue(jTable1, "",uId);
+        model=(DefaultTableModel) jTable1.getModel();
+        jTable1.setRowHeight(30);
+        jTable1.setShowGrid(true);
+        jTable1.setGridColor(Color.black);
+        jTable1.setBackground(Color.WHITE);
+        jTable1.setSelectionBackground(Color.LIGHT_GRAY);
     }
 
     @SuppressWarnings("unchecked")
@@ -65,6 +113,11 @@ public class PurchaseDetails extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 750, 460));
 
         jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
+            }
+        });
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, 272, 30));
 
         jTextField2.setEditable(false);
@@ -151,11 +204,32 @@ public class PurchaseDetails extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+       jTable1.setModel(new DefaultTableModel(null,
+               new Object[]{
+                       "Purchase Id",
+                       "Product Id",
+                       "Product Name",
+                       "Quantity",
+                       "Price",
+                       "Total",
+                       "Purchased Date",
+                       "Received Date",
+                       "Supplier Name",
+                       "Status"
+               }));
+       pd.getProductValue(jTable1,jTextField1.getText(),uId);
+    }//GEN-LAST:event_jTextField1KeyReleased
+
    
     public static void main(String args[]) {
   
         java.awt.EventQueue.invokeLater(()-> {
+            try {
                 new PurchaseDetails().setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(PurchaseDetails.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 

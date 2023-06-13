@@ -88,19 +88,18 @@ public class PurchaseDao {
         ps.setString(14, status);
         ps.executeUpdate();
     }
-
     public int getQty (int pid) throws SQLException {
         int qty = 0;
         st = con.createStatement();
 
-        rs = st.executeQuery("select pqty from product where pid=" + pid + "");
+        rs = st.executeQuery("select pqty from product where pid = " + pid + "");
         if (rs.next())
             qty = rs.getInt(1);
-            return qty;
+        return qty;
     }
 
     public void qtyUpdate(int pid,int qty) throws SQLException {
-        String sql="update product set pqty=? where pid=?";
+        String sql="update product set pqty = ? where pid = ?";
         ps=con.prepareStatement(sql);
         ps.setInt(1,qty);
         ps.setInt(2,pid);
@@ -162,6 +161,34 @@ public class PurchaseDao {
        if(ps.executeUpdate()>0)
            JOptionPane.showMessageDialog(null, "Product Successfully Delivered...");
        
+    }
+
+    public void getProductValue(JTable table,String search,int uid){
+        var sql="select * from purchase where concat(id,pid,product_name) like ? and uid = ? order by id desc";
+        try {
+            ps=con.prepareStatement(sql);
+            ps.setString(1,"%"+search+"%");
+            ps.setInt(2,uid);
+            rs=ps.executeQuery();
+            DefaultTableModel model=(DefaultTableModel)table.getModel();
+            Object[] rowData;
+            while(rs.next()){
+                rowData=new Object[10];
+                rowData[0]=rs.getInt(1);
+                rowData[1]=rs.getInt(5);
+                rowData[2]=rs.getString(6);
+                rowData[3]=rs.getInt(7);
+                rowData[4]=rs.getDouble(8);
+                rowData[5]=rs.getDouble(9);
+                rowData[6]=rs.getString(10);
+                rowData[7]=rs.getString(12);
+                rowData[8]=rs.getString(13);
+                rowData[9]=rs.getString(14);
+                model.addRow(rowData);
+            }}
+        catch (SQLException ex) {
+            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
  

@@ -272,9 +272,14 @@ public class UserDashboard extends javax.swing.JFrame {
     private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
 
         jLabel20.setVisible(true);
-        PurchaseDetails purchaseDetails= new PurchaseDetails();
-        purchaseDetails.setVisible(true);
-        purchaseDetails.pack();
+       try{
+           PurchaseDetails purchaseDetails= new PurchaseDetails();
+           purchaseDetails.setVisible(true);
+           purchaseDetails.pack();
+       }catch (SQLException e){
+           e.printStackTrace();
+       }
+
     }//GEN-LAST:event_jLabel21MouseClicked
 
      @SuppressWarnings("unchecked")
